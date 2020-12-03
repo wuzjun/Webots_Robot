@@ -106,7 +106,7 @@ int main(int argc, char **argv)
 
     wb_motor_set_velocity(wheels[0], speed_1);
     wb_motor_set_velocity(wheels[1], speed_2);
-    wb_motor_set_velocity(wheels[2], -speed_3);
+    wb_motor_set_velocity(wheels[2], speed_3);
   }
 
   wb_robot_cleanup();
