@@ -1,0 +1,176 @@
+#VRML_SIM R2020b utf8
+WorldInfo {
+  coordinateSystem "NUE"
+}
+Viewpoint {
+  orientation 0.05648243458558117 0.9064386070067643 0.41854364923018716 2.7792251887051167
+  position 0.8595994465598878 1.1648891566629693 -0.876562644828542
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+Solid {
+  translation 0.3520551533103956 0.09934252748945671 -0.32000151399565147
+  rotation 0.9143985057337193 -0.38925699385221874 0.11115019320304838 1.254461416914472
+  children [
+    Shape {
+      geometry Sphere {
+        radius 0.1
+      }
+    }
+  ]
+  name "qiu"
+  boundingObject Shape {
+    geometry Sphere {
+      radius 0.1
+    }
+  }
+  physics Physics {
+    density 100
+  }
+  linearVelocity 0.002608412493690338 8.786801288976833e-17 0.008867481147013303
+  angularVelocity 0.08867481147013302 0.06289275128849861 -0.026084124936903378
+}
+CircleArena {
+  radius 0.7
+}
+Robot {
+  translation 0.24 0.2 0
+  children [
+    HingeJoint {
+      jointParameters HingeJointParameters {
+      }
+      device [
+        DEF motor5 RotationalMotor {
+        }
+      ]
+      endPoint Solid {
+        translation 0.08 -0.02 -0.04
+        children [
+          Shape {
+            appearance PBRAppearance {
+              baseColor 0 0.666667 0
+            }
+            geometry Cylinder {
+              height 0.03
+              radius 0.015
+            }
+          }
+        ]
+      }
+    }
+    Shape {
+      appearance PBRAppearance {
+      }
+      geometry Box {
+        size 0.22 0.02 0.12
+      }
+    }
+  ]
+  name "robot(1)"
+}
+E-puck {
+  hidden position_0_0 146977.12524504904
+  hidden position_0_1 168892.2653049352
+  hidden rotation_1 -1 0 0 0.8545395041559922
+  hidden rotation_2 -0.9999999999999999 0 0 0.24424794790935447
+  translation 0.356804 -0.0148582 0.0645577
+  rotation 0.013989086246537195 0.9996045347436155 0.02439425313443385 -2.209877899209334
+  controller "epuck_avoid_collision"
+}
+Solid {
+  translation -0.48 0.0692035 1.21165e-06
+  rotation 1 0 0 1.5707963267948961
+  children [
+    DEF Dumbbells Group {
+      children [
+        Transform {
+          translation 0 0.2 0
+          children [
+            Shape {
+              appearance PBRAppearance {
+              }
+              geometry Sphere {
+                radius 0.07
+                subdivision 2
+              }
+            }
+          ]
+        }
+        Transform {
+          translation 0 -0.2 0
+          children [
+            Shape {
+              appearance PBRAppearance {
+              }
+              geometry Sphere {
+                radius 0.07
+                subdivision 2
+              }
+            }
+          ]
+        }
+        Shape {
+          appearance PBRAppearance {
+          }
+          geometry Cylinder {
+            height 0.4
+            radius 0.05
+          }
+        }
+      ]
+    }
+  ]
+  boundingObject USE Dumbbells
+  physics Physics {
+  }
+}
+Solid {
+  translation -0.03 0.359203 1.21165e-06
+  rotation 1 0 0 1.5707963267948961
+  children [
+    DEF Dumbbells Group {
+      children [
+        Transform {
+          translation 0 0.06 0
+          children [
+            Shape {
+              appearance PBRAppearance {
+              }
+              geometry Cylinder {
+                height 0.02
+                radius 0.26
+              }
+            }
+          ]
+        }
+        Transform {
+          translation 0 -0.06 0
+          children [
+            Shape {
+              appearance PBRAppearance {
+              }
+              geometry Cylinder {
+                height 0.02
+                radius 0.26
+              }
+            }
+          ]
+        }
+        Shape {
+          appearance PBRAppearance {
+          }
+          geometry Cylinder {
+            height 0.1
+            radius 0.05
+          }
+        }
+      ]
+    }
+  ]
+  name "solid(1)"
+  boundingObject USE Dumbbells
+  physics Physics {
+  }
+}
