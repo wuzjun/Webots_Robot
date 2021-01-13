@@ -1,10 +1,16 @@
 #VRML_SIM R2020b utf8
 WorldInfo {
+  ERP 0.6
+  basicTimeStep 8
   coordinateSystem "NUE"
+  contactProperties [
+    ContactProperties {
+    }
+  ]
 }
 Viewpoint {
-  orientation -0.25639834880569645 0.6972674116551523 0.6693863184839058 2.619620306562564
-  position 0.11623969329624409 1.0212275350446411 -0.016818188484812542
+  orientation 0.37751204499295915 -0.8760396317127257 -0.3000653588034875 4.809494226264323
+  position 0.5146607457944917 0.535373510911622 0.13681134205480558
 }
 TexturedBackground {
 }
@@ -17,6 +23,36 @@ Robot {
   translation 0 0.2 0
   rotation 0.007569052407778009 -0.9999673048671487 -0.0028458113745171276 -0.8709109139030309
   children [
+    Gyro {
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 1 0.796078 0.054902
+            metalness 0
+          }
+          geometry Cylinder {
+            height 0.02
+            radius 0.01
+          }
+        }
+      ]
+      name "gyro1"
+    }
+    InertialUnit {
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 1 0.796078 0.054902
+            metalness 0
+          }
+          geometry Cylinder {
+            height 0.02
+            radius 0.01
+          }
+        }
+      ]
+      name "imu"
+    }
     DEF WHEEL1 HingeJoint {
       jointParameters HingeJointParameters {
         axis 0 0 3
@@ -25,6 +61,7 @@ Robot {
       device [
         RotationalMotor {
           name "motor1"
+          maxVelocity 30
         }
       ]
       endPoint Solid {
@@ -38,6 +75,7 @@ Robot {
             }
             endPoint Solid {
               translation 0 -0.07 0.03
+              rotation 0.7071067811865475 0 0.7071067811865475 0
               children [
                 DEF r8 Transform {
                   rotation 0.3574058186283875 0.35740681862788 -0.8628565621288802 -1.7177753071795863
@@ -69,6 +107,7 @@ Robot {
             }
             endPoint Solid {
               translation 0.0494975 -0.0494975 0.03
+              rotation -0.5000006297449398 -0.5000006297449398 -0.7071058905915912 0
               children [
                 DEF r7 Transform {
                   rotation 0.6785982482200877 -0.2810851028163115 -0.6785982482200877 1.09606
@@ -100,6 +139,7 @@ Robot {
             }
             endPoint Solid {
               translation -0.0494975 -0.0494975 0.03
+              rotation -0.5000006297449398 0.5000006297449398 -0.7071058905915912 0
               children [
                 DEF r6 Transform {
                   rotation 0.6785982482200877 0.2810851028163115 -0.6785982482200877 -1.0960553071795864
@@ -131,6 +171,7 @@ Robot {
             }
             endPoint Solid {
               translation -0.07 0 0.03
+              rotation 0 0.7071067811865475 -0.7071067811865475 0
               children [
                 DEF r5 Transform {
                   rotation 1 0 0 -0.785398
@@ -162,6 +203,7 @@ Robot {
             }
             endPoint Solid {
               translation -0.0494975 0.0494975 0.03
+              rotation 0.5000006297449398 0.5000006297449398 -0.7071058905915912 0
               children [
                 DEF r4 Transform {
                   rotation 0.6785982482200877 -0.2810851028163115 0.6785982482200877 -1.0960553071795864
@@ -193,6 +235,7 @@ Robot {
             }
             endPoint Solid {
               translation 0.07 0 0.03
+              rotation 0 0.7071067811865475 0.7071067811865475 0
               children [
                 DEF r3 Transform {
                   rotation 1 0 0 0.785398
@@ -224,6 +267,7 @@ Robot {
             }
             endPoint Solid {
               translation 0.0494975 0.0494975 0.03
+              rotation -0.5000006297449398 0.5000006297449398 0.7071058905915912 0
               children [
                 DEF r2 Transform {
                   rotation 0.6785982482200877 0.2810851028163115 0.6785982482200877 1.09606
@@ -255,6 +299,7 @@ Robot {
             }
             endPoint Solid {
               translation 0 0.07 0.03
+              rotation -0.7071067811865475 0 0.7071067811865475 0
               children [
                 DEF r1 Transform {
                   rotation 0.3574058186283875 0.35740681862788 0.8628565621288802 1.71777
@@ -309,6 +354,7 @@ Robot {
       device [
         RotationalMotor {
           name "motor4"
+          maxVelocity 30
         }
       ]
       endPoint Solid {
@@ -322,6 +368,7 @@ Robot {
             }
             endPoint Solid {
               translation 0 -0.07 0.03
+              rotation 0.7071067811865475 0 0.7071067811865475 0
               children [
                 DEF r8 Transform {
                   rotation 0.3574058186283875 0.35740681862788 -0.8628565621288802 -1.7177753071795863
@@ -353,6 +400,7 @@ Robot {
             }
             endPoint Solid {
               translation 0.0494975 -0.0494975 0.03
+              rotation -0.5000006297449398 -0.5000006297449398 -0.7071058905915912 0
               children [
                 DEF r7 Transform {
                   rotation 0.6785982482200877 -0.2810851028163115 -0.6785982482200877 1.09606
@@ -384,6 +432,7 @@ Robot {
             }
             endPoint Solid {
               translation -0.0494975 -0.0494975 0.03
+              rotation -0.5000006297449398 0.5000006297449398 -0.7071058905915912 0
               children [
                 DEF r6 Transform {
                   rotation 0.6785982482200877 0.2810851028163115 -0.6785982482200877 -1.0960553071795864
@@ -415,6 +464,7 @@ Robot {
             }
             endPoint Solid {
               translation -0.07 0 0.03
+              rotation 0 0.7071067811865475 -0.7071067811865475 0
               children [
                 DEF r5 Transform {
                   rotation 1 0 0 -0.785398
@@ -446,6 +496,7 @@ Robot {
             }
             endPoint Solid {
               translation -0.0494975 0.0494975 0.03
+              rotation 0.5000006297449398 0.5000006297449398 -0.7071058905915912 0
               children [
                 DEF r4 Transform {
                   rotation 0.6785982482200877 -0.2810851028163115 0.6785982482200877 -1.0960553071795864
@@ -477,6 +528,7 @@ Robot {
             }
             endPoint Solid {
               translation 0.07 0 0.03
+              rotation 0 0.7071067811865475 0.7071067811865475 0
               children [
                 DEF r3 Transform {
                   rotation 1 0 0 0.785398
@@ -508,6 +560,7 @@ Robot {
             }
             endPoint Solid {
               translation 0.0494975 0.0494975 0.03
+              rotation -0.5000006297449398 0.5000006297449398 0.7071058905915912 0
               children [
                 DEF r2 Transform {
                   rotation 0.6785982482200877 0.2810851028163115 0.6785982482200877 1.09606
@@ -539,6 +592,7 @@ Robot {
             }
             endPoint Solid {
               translation 0 0.07 0.03
+              rotation -0.7071067811865475 0 0.7071067811865475 0
               children [
                 DEF r1 Transform {
                   rotation 0.3574058186283875 0.35740681862788 0.8628565621288802 1.71777
@@ -593,6 +647,7 @@ Robot {
       device [
         RotationalMotor {
           name "motor2"
+          maxVelocity 30
         }
       ]
       endPoint Solid {
@@ -606,7 +661,7 @@ Robot {
             }
             endPoint Solid {
               translation 0 -0.07 0.03
-              rotation 0 1 0 0.785398
+              rotation 0 0.9999999999999999 0 0.7853979999999999
               children [
                 DEF r8 Transform {
                   rotation 0 0 1 1.5708
@@ -638,6 +693,7 @@ Robot {
             }
             endPoint Solid {
               translation 0.0494975 -0.0494975 0.03
+              rotation -0.5000006297449398 -0.5000006297449398 0.7071058905915912 0
               children [
                 DEF r7 Transform {
                   rotation 0.6785982482200877 -0.2810851028163115 0.6785982482200877 -1.0960553071795864
@@ -669,6 +725,7 @@ Robot {
             }
             endPoint Solid {
               translation -0.0494975 -0.0494975 0.03
+              rotation -0.5000006297449398 0.5000006297449398 0.7071058905915912 0
               children [
                 DEF r6 Transform {
                   rotation 0.6785982482200877 0.2810851028163115 0.6785982482200877 1.09606
@@ -700,6 +757,7 @@ Robot {
             }
             endPoint Solid {
               translation -0.07 0 0.03
+              rotation 0 0.7071067811865475 0.7071067811865475 0
               children [
                 DEF r5 Transform {
                   rotation 1 0 0 0.785398
@@ -731,6 +789,7 @@ Robot {
             }
             endPoint Solid {
               translation -0.0494975 0.0494975 0.03
+              rotation 0.5000006297449398 0.5000006297449398 0.7071058905915912 0
               children [
                 DEF r4 Transform {
                   rotation 0.6785982482200877 -0.2810851028163115 -0.6785982482200877 1.09606
@@ -762,6 +821,7 @@ Robot {
             }
             endPoint Solid {
               translation 0.07 0 0.03
+              rotation 0 0.7071067811865475 -0.7071067811865475 0
               children [
                 DEF r3 Transform {
                   rotation 1 0 0 -0.785398
@@ -793,6 +853,7 @@ Robot {
             }
             endPoint Solid {
               translation 0.0494975 0.0494975 0.03
+              rotation -0.5000006297449398 0.5000006297449398 -0.7071058905915912 0
               children [
                 DEF r2 Transform {
                   rotation 0.6785982482200877 0.2810851028163115 -0.6785982482200877 -1.0960553071795864
@@ -824,7 +885,7 @@ Robot {
             }
             endPoint Solid {
               translation 0 0.07 0.03
-              rotation 0 1 0 -0.785398
+              rotation 0 -0.9999999999999999 0 0.7853979999999999
               children [
                 DEF r1 Transform {
                   rotation 0 0 1 1.5708
@@ -892,10 +953,12 @@ Robot {
       device [
         RotationalMotor {
           name "motor3"
+          maxVelocity 30
         }
       ]
       endPoint Solid {
         translation 0.13 -0.05 0.09
+        rotation 0 0 1 0
         children [
           DEF sr8 HingeJoint {
             jointParameters HingeJointParameters {
@@ -904,7 +967,7 @@ Robot {
             }
             endPoint Solid {
               translation 0 -0.07 0.03
-              rotation 0 1 0 0.785398
+              rotation 0 0.9999999999999999 0 0.7853979999999999
               children [
                 DEF r8 Transform {
                   rotation 0 0 1 1.5708
@@ -936,6 +999,7 @@ Robot {
             }
             endPoint Solid {
               translation 0.0494975 -0.0494975 0.03
+              rotation -0.5000006297449398 -0.5000006297449398 0.7071058905915912 0
               children [
                 DEF r7 Transform {
                   rotation 0.6785982482200877 -0.2810851028163115 0.6785982482200877 -1.0960553071795864
@@ -967,6 +1031,7 @@ Robot {
             }
             endPoint Solid {
               translation -0.0494975 -0.0494975 0.03
+              rotation -0.5000006297449398 0.5000006297449398 0.7071058905915912 0
               children [
                 DEF r6 Transform {
                   rotation 0.6785982482200877 0.2810851028163115 0.6785982482200877 1.09606
@@ -998,6 +1063,7 @@ Robot {
             }
             endPoint Solid {
               translation -0.07 0 0.03
+              rotation 0 0.7071067811865475 0.7071067811865475 0
               children [
                 DEF r5 Transform {
                   rotation 1 0 0 0.785398
@@ -1029,6 +1095,7 @@ Robot {
             }
             endPoint Solid {
               translation -0.0494975 0.0494975 0.03
+              rotation 0.5000006297449398 0.5000006297449398 0.7071058905915912 0
               children [
                 DEF r4 Transform {
                   rotation 0.6785982482200877 -0.2810851028163115 -0.6785982482200877 1.09606
@@ -1060,6 +1127,7 @@ Robot {
             }
             endPoint Solid {
               translation 0.07 0 0.03
+              rotation 0 0.7071067811865475 -0.7071067811865475 0
               children [
                 DEF r3 Transform {
                   rotation 1 0 0 -0.785398
@@ -1091,6 +1159,7 @@ Robot {
             }
             endPoint Solid {
               translation 0.0494975 0.0494975 0.03
+              rotation -0.5000006297449398 0.5000006297449398 -0.7071058905915912 0
               children [
                 DEF r2 Transform {
                   rotation 0.6785982482200877 0.2810851028163115 -0.6785982482200877 -1.0960553071795864
@@ -1122,7 +1191,7 @@ Robot {
             }
             endPoint Solid {
               translation 0 0.07 0.03
-              rotation 0 1 0 -0.785398
+              rotation 0 -0.9999999999999999 0 0.7853979999999999
               children [
                 DEF r1 Transform {
                   rotation 0 0 1 1.5708
