@@ -10,7 +10,7 @@ WorldInfo {
 }
 Viewpoint {
   orientation 1 0 0 4.71238898038469
-  position -0.0030865674596474418 20.523541913225866 -0.0014326555965441027
+  position -0.7264642148073894 21.18742985891746 0.038066942934706915
 }
 TexturedBackground {
 }
@@ -1038,7 +1038,7 @@ Robot {
   translation 0 0.85 0
   children [
     Solid {
-      translation -2 0.05 0
+      translation -2 -0.02 0
       children [
         Shape {
           appearance DEF mal3 PBRAppearance {
@@ -1146,7 +1146,7 @@ Robot {
       }
     }
     Solid {
-      translation 2 0.05 0
+      translation 2 -0.02 0
       children [
         Shape {
           appearance DEF mal8 PBRAppearance {
@@ -1720,166 +1720,166 @@ Robot {
   boundingObject Group {
     children [
       Transform {
-        translation 0 -0.01 1.2498
+        translation 0 0.015 1.2498
         children [
           Box {
-            size 0.05 0.13 2.20416
+            size 0.05 0.08 2.20416
           }
         ]
       }
       Transform {
-        translation 0 -0.01 -1.2498
+        translation 0 0.015 -1.2498
         children [
           Box {
-            size 0.05 0.13 2.20416
+            size 0.05 0.08 2.20416
           }
         ]
       }
       Transform {
-        translation 0 -0.01 -3.32391
+        translation 0 0.015 -3.32391
         children [
           Box {
-            size 0.05 0.13 1.3521
+            size 0.05 0.08 1.3521
           }
         ]
       }
       Transform {
-        translation 0 -0.01 3.32391
+        translation 0 0.015 3.32391
         children [
           Box {
-            size 0.05 0.13 1.3521
+            size 0.05 0.08 1.3521
           }
         ]
       }
       Transform {
-        translation 1.51214 -0.01 -3.97496
+        translation 1.51214 0.015 -3.97496
         children [
           Box {
-            size 0.975 0.13 0.05
+            size 0.975 0.08 0.05
           }
         ]
       }
       Transform {
-        translation -1.51214 -0.01 3.97496
+        translation -1.51214 0.015 3.97496
         children [
           Box {
-            size 0.975 0.13 0.05
+            size 0.975 0.08 0.05
           }
         ]
       }
       Transform {
-        translation 0.98714 -0.01 3.97496
+        translation 0.98714 0.015 3.97496
         children [
           Box {
-            size 2.025 0.13 0.05
+            size 2.025 0.08 0.05
           }
         ]
       }
       Transform {
-        translation -0.9875 -0.01 -3.97496
+        translation -0.9875 0.015 -3.97496
         children [
           Box {
-            size 2.025 0.13 0.05
+            size 2.025 0.08 0.05
           }
         ]
       }
       Transform {
-        translation -2.98229 -0.01 -2.98234
+        translation -2.98229 0.015 -2.98234
         rotation 0 1 0 0.785398
         children [
           Box {
-            size 2.8284 0.13 0.05
+            size 2.8284 0.08 0.05
           }
         ]
       }
       Transform {
-        translation 2.98229 -0.01 -2.98234
+        translation 2.98229 0.015 -2.98234
         rotation 0 1 0 0.785398
         children [
           Box {
-            size 0.05 0.13 2.8284
+            size 0.05 0.08 2.8284
           }
         ]
       }
       Transform {
-        translation 2.98229 -0.01 2.98234
+        translation 2.98229 0.015 2.98234
         rotation 0 1 0 0.785398
         children [
           Box {
-            size 2.8284 0.13 0.05
+            size 2.8284 0.08 0.05
           }
         ]
       }
       Transform {
-        translation -2.98229 -0.01 2.98234
+        translation -2.98229 0.015 2.98234
         rotation 0 1 0 0.785398
         children [
           Box {
-            size 0.05 0.13 2.8284
+            size 0.05 0.08 2.8284
           }
         ]
       }
       Transform {
-        translation 3.975 -0.01 0
+        translation 3.975 0.015 0
         children [
           Box {
-            size 0.05 0.13 4
+            size 0.05 0.08 4
           }
         ]
       }
       Transform {
-        translation -3.975 -0.01 0
+        translation -3.975 0.015 0
         children [
           Box {
-            size 0.05 0.13 4
+            size 0.05 0.08 4
           }
         ]
       }
       Transform {
-        translation -4.975 -0.01 0
+        translation -4.975 0.015 0
         children [
           Box {
-            size 1.95 0.13 0.05
+            size 1.95 0.08 0.05
           }
         ]
       }
       Transform {
-        translation 4.975 -0.01 0
+        translation 4.975 0.015 0
         children [
           Box {
-            size 1.95 0.13 0.05
+            size 1.95 0.08 0.05
           }
         ]
       }
       Transform {
-        translation 0 -0.01 -5.975
+        translation 0 0.015 -5.975
         children [
           Box {
-            size 12 0.13 0.05
+            size 12 0.08 0.05
           }
         ]
       }
       Transform {
-        translation 0 -0.01 5.975
+        translation 0 0.015 5.975
         children [
           Box {
-            size 12 0.13 0.05
+            size 12 0.08 0.05
           }
         ]
       }
       Transform {
-        translation 5.975 -0.01 0
+        translation 5.975 0.015 0
         children [
           Box {
-            size 0.05 0.13 12
+            size 0.05 0.08 12
           }
         ]
       }
       Transform {
-        translation -5.975 -0.01 0
+        translation -5.975 0.015 0
         children [
           Box {
-            size 0.05 0.13 12
+            size 0.05 0.08 12
           }
         ]
       }
