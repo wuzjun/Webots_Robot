@@ -1,0 +1,277 @@
+#VRML_OBJ R2020b utf8
+Robot {
+  children [
+    DEF Steering_WHEEL4 HingeJoint {
+      jointParameters HingeJointParameters {
+        axis 0 2 0
+        anchor -0.13 0.26 0.13
+      }
+      device [
+        RotationalMotor {
+          name "motor4"
+        }
+      ]
+      endPoint Solid {
+        translation -0.13 0.3 0.13
+        children [
+          DEF WHEEL HingeJoint {
+            jointParameters HingeJointParameters {
+              anchor 0 -0.13 0
+            }
+            device [
+              RotationalMotor {
+                name "motor8"
+              }
+            ]
+            endPoint Solid {
+              translation 0 -0.13 0
+              rotation 0 0 1 1.5708
+              children [
+                DEF WHEEL Shape {
+                  appearance PBRAppearance {
+                    baseColor 0 0 0.498039
+                    roughness 1
+                  }
+                  geometry Cylinder {
+                    height 0.02
+                    radius 0.05
+                  }
+                }
+              ]
+              boundingObject USE WHEEL
+              physics Physics {
+              }
+            }
+          }
+          DEF Turntable_4 Transform {
+            translation 0 -0.04 0
+            children [
+              Shape {
+                appearance PBRAppearance {
+                  baseColor 0.666667 0 0
+                }
+                geometry Cylinder {
+                  height 0.08
+                  radius 0.05
+                }
+              }
+            ]
+          }
+        ]
+        name "Steering_WHEEL4"
+        boundingObject USE Turntable_4
+        physics Physics {
+        }
+      }
+    }
+    DEF Steering_WHEEL3 HingeJoint {
+      jointParameters HingeJointParameters {
+        axis 0 2 0
+        anchor 0.13 0.26 0.13
+      }
+      device [
+        RotationalMotor {
+          name "motor3"
+        }
+      ]
+      endPoint Solid {
+        translation 0.13 0.3 0.13
+        children [
+          DEF WHEEL HingeJoint {
+            jointParameters HingeJointParameters {
+              anchor 0 -0.13 0
+            }
+            device [
+              RotationalMotor {
+                name "motor7"
+              }
+            ]
+            endPoint Solid {
+              translation 0 -0.13 0
+              rotation 0 0 1 1.5708
+              children [
+                DEF WHEEL Shape {
+                  appearance PBRAppearance {
+                    baseColor 0 0 0.498039
+                    roughness 1
+                    metalness 0
+                  }
+                  geometry Cylinder {
+                    height 0.02
+                    radius 0.05
+                  }
+                }
+              ]
+              boundingObject USE WHEEL
+              physics Physics {
+              }
+            }
+          }
+          DEF Turntable_3 Transform {
+            translation 0 -0.04 0
+            children [
+              Shape {
+                appearance PBRAppearance {
+                  baseColor 0.666667 0 0
+                }
+                geometry Cylinder {
+                  height 0.08
+                  radius 0.05
+                }
+              }
+            ]
+          }
+        ]
+        name "Steering_WHEEL3"
+        boundingObject USE Turntable_3
+        physics Physics {
+        }
+      }
+    }
+    DEF Steering_WHEEL2 HingeJoint {
+      jointParameters HingeJointParameters {
+        axis 0 2 0
+        anchor -0.13 0.26 -0.13
+      }
+      device [
+        RotationalMotor {
+          name "motor2"
+        }
+      ]
+      endPoint Solid {
+        translation -0.13 0.3 -0.13
+        children [
+          DEF WHEEL HingeJoint {
+            jointParameters HingeJointParameters {
+              anchor 0 -0.13 0
+            }
+            device [
+              RotationalMotor {
+                name "motor6"
+              }
+            ]
+            endPoint Solid {
+              translation 0 -0.13 0
+              rotation 0 0 1 1.5708
+              children [
+                DEF WHEEL Shape {
+                  appearance PBRAppearance {
+                    baseColor 0 0 0.498039
+                    roughness 1
+                    metalness 0
+                  }
+                  geometry Cylinder {
+                    height 0.02
+                    radius 0.05
+                  }
+                }
+              ]
+              boundingObject USE WHEEL
+              physics Physics {
+              }
+            }
+          }
+          DEF Turntable_2 Transform {
+            translation 0 -0.04 0
+            children [
+              Shape {
+                appearance PBRAppearance {
+                  baseColor 0.666667 0 0
+                }
+                geometry Cylinder {
+                  height 0.08
+                  radius 0.05
+                }
+              }
+            ]
+          }
+        ]
+        name "Steering_WHEEL2"
+        boundingObject USE Turntable_2
+        physics Physics {
+        }
+      }
+    }
+    DEF Steering_WHEEL1 HingeJoint {
+      jointParameters HingeJointParameters {
+        axis 0 2 0
+        anchor 0.13 0.26 -0.13
+      }
+      device [
+        RotationalMotor {
+          name "motor1"
+        }
+      ]
+      endPoint Solid {
+        translation 0.13 0.3 -0.13
+        children [
+          DEF WHEEL HingeJoint {
+            jointParameters HingeJointParameters {
+              anchor 0 -0.13 0
+            }
+            device [
+              RotationalMotor {
+                name "motor5"
+              }
+            ]
+            endPoint Solid {
+              translation 0 -0.13 0
+              rotation 0 0 1 1.5708
+              children [
+                DEF WHEEL Shape {
+                  appearance PBRAppearance {
+                    baseColor 0 0 0.498039
+                    roughness 1
+                    metalness 0
+                  }
+                  geometry Cylinder {
+                    height 0.02
+                    radius 0.05
+                  }
+                }
+              ]
+              boundingObject USE WHEEL
+              physics Physics {
+              }
+            }
+          }
+          DEF Turntable_1 Transform {
+            translation 0 -0.04 0
+            children [
+              Shape {
+                appearance PBRAppearance {
+                  baseColor 0.666667 0 0
+                }
+                geometry Cylinder {
+                  height 0.08
+                  radius 0.05
+                }
+              }
+            ]
+          }
+        ]
+        name "Steering_WHEEL1"
+        boundingObject USE Turntable_1
+        physics Physics {
+        }
+      }
+    }
+    DEF BODY Transform {
+      translation 0 0.3 0
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0 1 0
+          }
+          geometry Box {
+            size 0.4 0.04 0.4
+          }
+        }
+      ]
+    }
+  ]
+  boundingObject USE BODY
+  physics Physics {
+  }
+  controller "my_controller"
+}
