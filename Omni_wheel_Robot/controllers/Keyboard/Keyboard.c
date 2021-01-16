@@ -5,7 +5,7 @@
 // Added a new include file
 #include <webots/motor.h>
 
-#define TIME_STEP 64
+#define TIME_STEP 8
 
 int main(int argc, char **argv)
 {
