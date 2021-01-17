@@ -10,14 +10,14 @@ WorldInfo {
 }
 Viewpoint {
   orientation 1 0 0 4.71238898038469
-  position -0.0049573643061089495 22.65138788601143 0.25258235999623274
+  position 0.2538872217530652 22.08235498899781 0.30446960078245466
 }
 TexturedBackground {
 }
 TexturedBackgroundLight {
 }
 Robot {
-  translation -2.85343 0.970849 5.02198
+  translation -0.725777 0.975609 3.84587
   rotation 0.007569052407778009 -0.9999673048671487 -0.0028458113745171276 -0.8709109139030309
   children [
     DEF BODY Transform {
@@ -1042,6 +1042,7 @@ Robot {
       children [
         Shape {
           appearance DEF mal PBRAppearance {
+            baseColor 1 0.333333 0
             roughness 1
             metalness 0
           }
@@ -1154,7 +1155,36 @@ Robot {
         }
       ]
       name "Red_Left_Pot1_Link"
-      boundingObject USE Red_Left_Pot1_Link
+      boundingObject Group {
+        children [
+          Transform {
+            translation 0 0.02 0
+            children [
+              Box {
+                size 0.92 0.026 0.56
+              }
+            ]
+          }
+          Transform {
+            translation 0 0.02 0.28
+            children [
+              Cylinder {
+                height 0.026
+                radius 0.46
+              }
+            ]
+          }
+          Transform {
+            translation 0 0.02 -0.28
+            children [
+              Cylinder {
+                height 0.026
+                radius 0.46
+              }
+            ]
+          }
+        ]
+      }
       physics Physics {
         density -1
         mass 42.470453
@@ -1262,7 +1292,36 @@ Robot {
         }
       ]
       name "Blue_right_Link_p1"
-      boundingObject USE Blue_right_Link_p1
+      boundingObject Group {
+        children [
+          Transform {
+            translation 0 0.02 0
+            children [
+              Box {
+                size 0.92 0.026 0.56
+              }
+            ]
+          }
+          Transform {
+            translation 0 0.02 0.28
+            children [
+              Cylinder {
+                height 0.026
+                radius 0.46
+              }
+            ]
+          }
+          Transform {
+            translation 0 0.02 -0.28
+            children [
+              Cylinder {
+                height 0.026
+                radius 0.46
+              }
+            ]
+          }
+        ]
+      }
       physics Physics {
         density -1
         mass 42.470453
