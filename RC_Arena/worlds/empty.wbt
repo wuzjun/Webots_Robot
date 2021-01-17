@@ -10,15 +10,16 @@ WorldInfo {
 }
 Viewpoint {
   orientation 1 0 0 4.71238898038469
-  position 0.2538872217530652 22.08235498899781 0.30446960078245466
+  position 0.17355841567549207 18.339670340610407 -0.006318954186004505
 }
 TexturedBackground {
 }
 TexturedBackgroundLight {
 }
 Robot {
-  translation -0.725777 0.975609 3.84587
+  translation -0.619035 1.04659 3.93568
   rotation 0.007569052407778009 -0.9999673048671487 -0.0028458113745171276 -0.8709109139030309
+  scale 2.65979 2.65979 2.65979
   children [
     DEF BODY Transform {
       translation 0 -0.03 0
@@ -1035,7 +1036,7 @@ Robot {
   controller "Keyboard"
 }
 Robot {
-  translation 0 0.85 0
+  translation 0 0.78 0
   children [
     Transform {
       translation 0 0.04 0
@@ -1469,7 +1470,28 @@ Robot {
         }
       ]
       name "Pot_2_up_Link"
-      boundingObject USE Pot_2_up_Link
+      boundingObject Group {
+        children [
+          Transform {
+            translation 0 0.013 0
+            children [
+              Cylinder {
+                height 0.084
+                radius 0.077
+              }
+            ]
+          }
+          Transform {
+            translation 0 -0.037 0
+            children [
+              Cylinder {
+                height 0.016
+                radius 0.15
+              }
+            ]
+          }
+        ]
+      }
       physics Physics {
         density -1
         mass 0.600144
@@ -1617,7 +1639,27 @@ Robot {
         }
       ]
       name "Pot_2_down_Link"
-      boundingObject USE Pot_2_down_Link
+      boundingObject Group {
+        children [
+          Transform {
+            translation 0 0.05 0
+            children [
+              Cylinder {
+                height 0.084
+                radius 0.077
+              }
+            ]
+          }
+          Transform {
+            children [
+              Cylinder {
+                height 0.016
+                radius 0.15
+              }
+            ]
+          }
+        ]
+      }
       physics Physics {
         density -1
         mass 0.60014
@@ -1765,7 +1807,28 @@ Robot {
         }
       ]
       name "Pot_3_Link"
-      boundingObject USE Pot_3_Link
+      boundingObject Group {
+        children [
+          Transform {
+            translation 0 0.168 0
+            children [
+              Cylinder {
+                height 0.248
+                radius 0.077
+              }
+            ]
+          }
+          Transform {
+            translation 0 0.0215 0
+            children [
+              Cylinder {
+                height 0.043
+                radius 0.15
+              }
+            ]
+          }
+        ]
+      }
       physics Physics {
         density -1
         mass 545.04
