@@ -2,6 +2,8 @@
 #include <webots/keyboard.h>
 #include <webots/inertial_unit.h>
 #include <webots/gyro.h>
+#include <webots/accelerometer.h>
+#include <webots/compass.h>
 #include <stdio.h>
 #include <string.h>
 #include <Math.h>
@@ -9,6 +11,15 @@
 #include <webots/motor.h>
 
 #define TIME_STEP 8
+
+double get_bearing_in_degrees(double* north)
+{
+  double rad = atan2(north[0], north[2]);
+  double bearing = (rad - 1.5708) / M_PI * 180.0;
+  if (bearing < 0.0)
+    bearing = bearing + 360.0;
+  return bearing;
+}
 
 int main(int argc, char **argv)
 {
@@ -25,11 +36,30 @@ int main(int argc, char **argv)
     wb_motor_set_position(wheels[i], INFINITY);
   }
 
+  // initialize IMU
   WbDeviceTag IMU;
   IMU = wb_robot_get_device("imu");
   wb_inertial_unit_enable(IMU, TIME_STEP);
 
+  // initialize Gyro
+  WbDeviceTag GYRO;
+  GYRO = wb_robot_get_device("gyro1");
+  wb_gyro_enable(GYRO, TIME_STEP);
+
+  // initialize Accelerometer
+  WbDeviceTag ACCELEROMETER;
+  ACCELEROMETER = wb_robot_get_device("accelerometer1");
+  wb_accelerometer_enable(ACCELEROMETER, TIME_STEP);
+
+  // initialize Compass
+  WbDeviceTag COMPASS;
+  COMPASS = wb_robot_get_device("compass1");
+  wb_compass_enable(COMPASS, TIME_STEP);
+
   double Eular[3] = {0};
+  double Angular_velocity[3] = {0};
+  double Acceleration[3] = {0};
+  double Magnetometer[3] = {0};
   float speed[4] = {0.0f, 0.0f, 0.0f, 0.0f};
   float Vx = 0.0f;
   float Vy = 0.0f;
@@ -43,14 +73,32 @@ int main(int argc, char **argv)
     int key = wb_keyboard_get_key();
     // printf("%d\n", key);
     memcpy(Eular, wb_inertial_unit_get_roll_pitch_yaw(IMU), sizeof(double[3]));
+    memcpy(Angular_velocity, wb_gyro_get_values(GYRO), sizeof(double[3]));
+    memcpy(Acceleration, wb_accelerometer_get_values(ACCELEROMETER), sizeof(double[3]));
+    memcpy(Magnetometer, wb_compass_get_values(COMPASS), sizeof(double[3]));
     for (int i = 0; i < 3; i++)
     {
       Eular[i] *= 180.0 / 3.14159;
       Eular[i] += 180.0;
     }
-    printf("roll = %lf:\n", Eular[0]);
-    printf("pitch = %lf:\n", Eular[1]);
-    printf("yaw = %lf:\n", Eular[2]);
+    // printf("roll = %lf:\n", Eular[0]);
+    // printf("pitch = %lf:\n", Eular[1]);
+    // printf("yaw = %lf:\n", Eular[2]);
+
+    // printf("Vx = %lf:\n", Angular_velocity[0]);
+    // printf("Vy = %lf:\n", Angular_velocity[1]);
+    // printf("Vz = %lf:\n", Angular_velocity[2]);
+
+    // printf("xAxis = %lf:\n", Acceleration[0]);
+    // printf("yAxis = %lf:\n", Acceleration[1]);
+    // printf("zAxis = %lf:\n", Acceleration[2]);
+
+    // printf("xAxis = %lf:\n", Magnetometer[0]);
+    // printf("yAxis = %lf:\n", Magnetometer[1]);
+    // printf("zAxis = %lf:\n", Magnetometer[2]);
+
+    double angle = get_bearing_in_degrees(Magnetometer); 
+    printf("angle = %lf:\n", angle);
 
     fflush(stdout);
     switch (key)
