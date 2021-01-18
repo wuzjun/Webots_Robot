@@ -10,7 +10,7 @@ WorldInfo {
 }
 Viewpoint {
   orientation 1 0 0 4.71238898038469
-  position 0.17355841567549207 18.339670340610407 -0.006318954186004505
+  position 2.9178442885785523e-06 18.535742992755562 0.0005213842856337059
 }
 TexturedBackground {
 }
@@ -1359,6 +1359,7 @@ Robot {
           jointParameters HingeJointParameters {
             axis 0 -3 0
             anchor 0 0.05 0
+            staticFriction 0.5
           }
           endPoint Solid {
             translation 0 0.05 0
@@ -1528,6 +1529,7 @@ Robot {
           jointParameters HingeJointParameters {
             axis 0 -3 0
             anchor 0 0.087 0
+            staticFriction 0.5
           }
           endPoint Solid {
             translation 0 0.087 0
@@ -1696,6 +1698,7 @@ Robot {
           jointParameters HingeJointParameters {
             axis 0 -3 0
             anchor 0 0.296 0
+            staticFriction 0.5
           }
           endPoint Solid {
             translation 0 0.296 0
