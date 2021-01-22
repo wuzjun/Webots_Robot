@@ -1,5 +1,6 @@
 #include <webots/robot.h>
 #include <webots/keyboard.h>
+#include <webots/mouse.h>
 #include <webots/inertial_unit.h>
 #include <webots/gyro.h>
 #include <webots/accelerometer.h>
@@ -12,7 +13,7 @@
 
 #define TIME_STEP 8
 
-double get_bearing_in_degrees(double* north)
+double get_bearing_in_degrees(double *north)
 {
   double rad = atan2(north[0], north[2]);
   double bearing = (rad - 1.5708) / M_PI * 180.0;
@@ -56,6 +57,7 @@ int main(int argc, char **argv)
   COMPASS = wb_robot_get_device("compass1");
   wb_compass_enable(COMPASS, TIME_STEP);
 
+  
   double Eular[3] = {0};
   double Angular_velocity[3] = {0};
   double Acceleration[3] = {0};
@@ -66,6 +68,7 @@ int main(int argc, char **argv)
   float VOmega = 0.0f;
 
   wb_keyboard_enable(TIME_STEP);
+  wb_mouse_enable(TIME_STEP);
 
   while (wb_robot_step(TIME_STEP) != -1)
   {
@@ -96,9 +99,16 @@ int main(int argc, char **argv)
     // printf("xAxis = %lf:\n", Magnetometer[0]);
     // printf("yAxis = %lf:\n", Magnetometer[1]);
     // printf("zAxis = %lf:\n", Magnetometer[2]);
+    WbMouseState Mouse1 = wb_mouse_get_state();
 
-    double angle = get_bearing_in_degrees(Magnetometer); 
-    printf("angle = %lf:\n", angle);
+    printf("mouse.left = %d:\n", Mouse1.left);
+    printf("mouse.middle = %d:\n", Mouse1.middle);
+    printf("mouse.right = %d:\n", Mouse1.right);
+    printf("mouse.u = %lf:\n", Mouse1.u);
+    printf("mouse.v = %lf:\n", Mouse1.v);
+
+    double angle = get_bearing_in_degrees(Magnetometer);
+    // printf("angle = %lf:\n", angle);
 
     fflush(stdout);
     switch (key)
