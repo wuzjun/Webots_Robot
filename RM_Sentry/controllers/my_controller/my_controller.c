@@ -13,12 +13,14 @@ int main(int argc, char **argv)
   wb_robot_init();
 
   // initialize motors
-  WbDeviceTag wheels;
-  int i;
-  for (i = 0; i < 4; i++)
+  WbDeviceTag wheels[3];
+  char wheels_names[3][8] = {
+      "motor1", "motor2", "motor3"};
+
+  for (int i = 0; i < 3; i++)
   {
-    wheels = wb_robot_get_device("motor1");
-    wb_motor_set_position(wheels, INFINITY);
+    wheels[i] = wb_robot_get_device(wheels_names[i]);
+    wb_motor_set_position(wheels[i], INFINITY);
   }
 
   float left_speed = 0.0f;
@@ -32,8 +34,8 @@ int main(int argc, char **argv)
   {
 
     int key = wb_keyboard_get_key();
-    printf("%d\n",key);
-    fflush(stdout); 
+    printf("%d\n", key);
+    fflush(stdout);
     switch (key)
     {
     case 'A':
@@ -83,7 +85,10 @@ int main(int argc, char **argv)
     left_speed = tempSpeed[0] * Param;
     right_speed = tempSpeed[1] * Param;
 
-    wb_motor_set_velocity(wheels, left_speed);
+    for (int i = 0; i < 3; i++)
+    {
+      wb_motor_set_velocity(wheels[i], left_speed);
+    }
   }
 
   wb_robot_cleanup();

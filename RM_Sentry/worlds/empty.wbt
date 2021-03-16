@@ -4,8 +4,8 @@ WorldInfo {
   coordinateSystem "NUE"
 }
 Viewpoint {
-  orientation 0.4913272407641982 -0.8576118021383827 -0.15198532598904022 5.5908439758139306
-  position 0.7676998586321692 1.7639331620894578 1.1413879553459483
+  orientation 0.9866442709379888 0.09970410289941756 0.12881061481984674 6.116610603177084
+  position -0.0886883164056351 1.389350804190346 1.5689655106869766
 }
 TexturedBackground {
 }
@@ -16,6 +16,275 @@ Floor {
 DEF Sentinel Robot {
   translation 0 1.155 0
   children [
+    DEF Cloud Transform {
+      translation 0 -0.02 0
+      children [
+        HingeJoint {
+          jointParameters HingeJointParameters {
+            axis 0 1 0
+          }
+          device [
+            RotationalMotor {
+              name "motor2"
+              maxVelocity 50
+            }
+          ]
+          endPoint Solid {
+            children [
+              DEF shoot Group {
+                children [
+                  HingeJoint {
+                    jointParameters HingeJointParameters {
+                      anchor -0.09 -0.11 0
+                    }
+                    device [
+                      RotationalMotor {
+                        name "motor3"
+                        maxVelocity 50
+                      }
+                    ]
+                    endPoint Solid {
+                      translation -0.0899999 -0.11 0
+                      rotation 0 0 1 -1.5707953071795862
+                      children [
+                        Transform {
+                          translation 0 0.09 0
+                          rotation 0 0 1 -1.5707953071795862
+                          children [
+                            Solid {
+                              children [
+                                Transform {
+                                  translation 0 -0.01 0.07
+                                  children [
+                                    Solid {
+                                      translation 0 0 0.06
+                                      children [
+                                        DEF barrel Shape {
+                                          appearance PBRAppearance {
+                                            baseColor 0.12549 0.12549 0.12549
+                                          }
+                                          geometry Box {
+                                            size 0.03 0.015 0.2
+                                          }
+                                        }
+                                      ]
+                                      name "solid(8)"
+                                      boundingObject USE barrel
+                                      physics Physics {
+                                      }
+                                    }
+                                  ]
+                                }
+                                DEF shoot_board Shape {
+                                  appearance PBRAppearance {
+                                    baseColor 0.12549 0.12549 0.12549
+                                  }
+                                  geometry Box {
+                                    size 0.17 0.01 0.1
+                                  }
+                                }
+                              ]
+                              name "solid(7)"
+                              boundingObject USE shoot_board
+                              physics Physics {
+                              }
+                            }
+                          ]
+                        }
+                        HingeJoint {
+                          jointParameters HingeJointParameters {
+                            axis 0 1 0
+                            anchor 0 0.18 0
+                          }
+                          endPoint Solid {
+                            translation 0 0.18 0
+                            children [
+                              DEF Cloud_false_Motor Shape {
+                                appearance PBRAppearance {
+                                  baseColor 0 0 0
+                                }
+                                geometry Cylinder {
+                                  height 0.02
+                                  radius 0.055
+                                }
+                              }
+                            ]
+                            name "solid(6)"
+                            boundingObject USE Cloud_false_Motor
+                            physics Physics {
+                            }
+                          }
+                        }
+                        DEF Cloud_Motor Shape {
+                          appearance PBRAppearance {
+                            baseColor 0 0 0
+                          }
+                          geometry Cylinder {
+                            height 0.02
+                            radius 0.055
+                          }
+                        }
+                      ]
+                      name "solid(5)"
+                      boundingObject USE Cloud_Motor
+                      physics Physics {
+                      }
+                    }
+                  }
+                ]
+              }
+              Group {
+                children [
+                  Transform {
+                    translation -0.1 -0.06 -0.04
+                    children [
+                      Solid {
+                        children [
+                          DEF post Shape {
+                            appearance PBRAppearance {
+                              baseColor 0 0 0.498039
+                            }
+                            geometry Box {
+                              size 0.004 0.1 0.03
+                            }
+                          }
+                        ]
+                        name "solid(15)"
+                        boundingObject USE post
+                        physics Physics {
+                        }
+                      }
+                    ]
+                  }
+                  Transform {
+                    translation 0.1 -0.06 -0.04
+                    children [
+                      Solid {
+                        children [
+                          DEF post Shape {
+                            appearance PBRAppearance {
+                              baseColor 0 0 0.498039
+                            }
+                            geometry Box {
+                              size 0.004 0.1 0.03
+                            }
+                          }
+                        ]
+                        name "solid(1)"
+                        boundingObject USE post
+                        physics Physics {
+                        }
+                      }
+                    ]
+                  }
+                  Transform {
+                    translation 0.1 -0.06 0.04
+                    children [
+                      Solid {
+                        children [
+                          DEF post Shape {
+                            appearance PBRAppearance {
+                              baseColor 0 0 0.498039
+                            }
+                            geometry Box {
+                              size 0.004 0.1 0.03
+                            }
+                          }
+                        ]
+                        name "solid(2)"
+                        boundingObject USE post
+                        physics Physics {
+                        }
+                      }
+                    ]
+                  }
+                  Transform {
+                    translation -0.1 -0.06 0.04
+                    children [
+                      Solid {
+                        children [
+                          DEF post Shape {
+                            appearance PBRAppearance {
+                              baseColor 0 0 0.498039
+                            }
+                            geometry Box {
+                              size 0.004 0.1 0.03
+                            }
+                          }
+                        ]
+                        name "solid(3)"
+                        boundingObject USE post
+                        physics Physics {
+                        }
+                      }
+                    ]
+                  }
+                  Transform {
+                    translation -0.1 0 0
+                    children [
+                      Solid {
+                        translation 4.04052e-07 -0.11 0
+                        rotation 0 0 1 1.5708
+                        children [
+                          DEF disc Shape {
+                            appearance PBRAppearance {
+                              baseColor 0 0 0.498039
+                            }
+                            geometry Cylinder {
+                              height 0.004
+                              radius 0.055
+                            }
+                          }
+                        ]
+                        boundingObject USE disc
+                        physics Physics {
+                        }
+                      }
+                    ]
+                  }
+                  Transform {
+                    translation 0.1 0 0
+                    children [
+                      Solid {
+                        translation 4.04052e-07 -0.11 0
+                        rotation 0 0 1 1.5708
+                        children [
+                          DEF disc Shape {
+                            appearance PBRAppearance {
+                              baseColor 0 0 0.498039
+                            }
+                            geometry Cylinder {
+                              height 0.004
+                              radius 0.055
+                            }
+                          }
+                        ]
+                        name "solid(4)"
+                        boundingObject USE disc
+                        physics Physics {
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+              DEF Cloud_disc Shape {
+                appearance PBRAppearance {
+                  baseColor 0 0 1
+                }
+                geometry Cylinder {
+                  height 0.02
+                  radius 0.12
+                }
+              }
+            ]
+            boundingObject USE Cloud_disc
+            physics Physics {
+            }
+          }
+        }
+      ]
+    }
     DEF Chaiss_Wheel Group {
       children [
         DEF Intermediate_Driven_Wheel_2 HingeJoint {
