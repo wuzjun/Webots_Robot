@@ -4,8 +4,8 @@ WorldInfo {
   coordinateSystem "NUE"
 }
 Viewpoint {
-  orientation 0.7122461924909282 -0.6809003969594454 -0.17052862135913022 5.6069363199258735
-  position 0.4163959806292754 1.6912619960011244 0.7888233711653453
+  orientation 0.4913272407641982 -0.8576118021383827 -0.15198532598904022 5.5908439758139306
+  position 0.7676998586321692 1.7639331620894578 1.1413879553459483
 }
 TexturedBackground {
 }
@@ -16,361 +16,365 @@ Floor {
 DEF Sentinel Robot {
   translation 0 1.155 0
   children [
-    DEF On_Driven_Wheel_6 HingeJoint {
-      jointParameters HingeJointParameters {
-        axis 0 0 1
-        anchor 0.09 0.117 0.064
-      }
-      endPoint Solid {
-        translation 0.09 0.117 0.064
-        rotation 1 0 0 1.5708
-        children [
-          DEF On_Driven_Wheel Shape {
-            appearance PBRAppearance {
-              baseColor 1 0.666667 0.498039
-            }
-            geometry Cylinder {
-              height 0.01
-              radius 0.009
+    DEF Chaiss_Wheel Group {
+      children [
+        DEF Intermediate_Driven_Wheel_2 HingeJoint {
+          jointParameters HingeJointParameters {
+            axis 0 1 0
+            anchor 0 0.08 -0.114
+          }
+          endPoint Solid {
+            translation 0 0.08 -0.114
+            rotation 1 0 0 0
+            children [
+              DEF Intermediate_Driven_Wheel Shape {
+                appearance PBRAppearance {
+                  baseColor 1 0.666667 0.498039
+                }
+                geometry Cylinder {
+                  height 0.01
+                  radius 0.015
+                }
+              }
+            ]
+            name "solid(4)"
+            boundingObject USE Intermediate_Driven_Wheel
+            physics Physics {
             }
           }
-        ]
-        name "solid(14)"
-        boundingObject USE On_Driven_Wheel
-        physics Physics {
         }
-      }
-    }
-    DEF On_Driven_Wheel_5 HingeJoint {
-      jointParameters HingeJointParameters {
-        axis 0 0 1
-        anchor -0.09 0.117 0.064
-      }
-      endPoint Solid {
-        translation -0.09 0.117 0.064
-        rotation 1 0 0 1.5708
-        children [
-          DEF On_Driven_Wheel Shape {
-            appearance PBRAppearance {
-              baseColor 1 0.666667 0.498039
-            }
-            geometry Cylinder {
-              height 0.01
-              radius 0.009
+        DEF Intermediate_Driven_Wheel_1 HingeJoint {
+          jointParameters HingeJointParameters {
+            axis 0 1 0
+            anchor 0 0.08 0.114
+          }
+          endPoint Solid {
+            translation 0 0.08 0.114
+            rotation 1 0 0 0
+            children [
+              DEF Intermediate_Driven_Wheel Shape {
+                appearance PBRAppearance {
+                  baseColor 1 0.666667 0.498039
+                }
+                geometry Cylinder {
+                  height 0.01
+                  radius 0.015
+                }
+              }
+            ]
+            name "solid(3)"
+            boundingObject USE Intermediate_Driven_Wheel
+            physics Physics {
             }
           }
-        ]
-        name "solid(13)"
-        boundingObject USE On_Driven_Wheel
-        physics Physics {
         }
-      }
-    }
-    DEF On_Driven_Wheel_4 HingeJoint {
-      jointParameters HingeJointParameters {
-        axis 0 0 1
-        anchor 0.13 0.117 0.064
-      }
-      endPoint Solid {
-        translation 0.13 0.117 0.064
-        rotation 1 0 0 1.5708
-        children [
-          DEF On_Driven_Wheel Shape {
-            appearance PBRAppearance {
-              baseColor 1 0.666667 0.498039
-            }
-            geometry Cylinder {
-              height 0.01
-              radius 0.009
+        DEF Doen_Driven_Wheel_2 HingeJoint {
+          jointParameters HingeJointParameters {
+            axis 0 0 1
+            anchor 0 0.035 -0.06
+          }
+          endPoint Solid {
+            translation 0 0.035 -0.06
+            rotation 1 0 0 1.5708
+            children [
+              DEF Doen_Driven_Wheel Shape {
+                appearance PBRAppearance {
+                  baseColor 1 0.666667 0.498039
+                }
+                geometry Cylinder {
+                  height 0.015
+                  radius 0.03
+                }
+              }
+            ]
+            name "solid(2)"
+            boundingObject USE Doen_Driven_Wheel
+            physics Physics {
             }
           }
-        ]
-        name "solid(12)"
-        boundingObject USE On_Driven_Wheel
-        physics Physics {
         }
-      }
-    }
-    DEF On_Driven_Wheel_3 HingeJoint {
-      jointParameters HingeJointParameters {
-        axis 0 0 1
-        anchor -0.13 0.117 0.064
-      }
-      endPoint Solid {
-        translation -0.13 0.117 0.064
-        rotation 1 0 0 1.5708
-        children [
-          DEF On_Driven_Wheel Shape {
-            appearance PBRAppearance {
-              baseColor 1 0.666667 0.498039
-            }
-            geometry Cylinder {
-              height 0.01
-              radius 0.009
+        DEF Doen_Driven_Wheel_1 HingeJoint {
+          jointParameters HingeJointParameters {
+            axis 0 0 1
+            anchor 0 0.035 0.06
+          }
+          endPoint Solid {
+            translation 0 0.035 0.06
+            rotation 1 0 0 1.5708
+            children [
+              DEF Doen_Driven_Wheel Shape {
+                appearance PBRAppearance {
+                  baseColor 1 0.666667 0.498039
+                }
+                geometry Cylinder {
+                  height 0.015
+                  radius 0.03
+                }
+              }
+            ]
+            name "solid(1)"
+            boundingObject USE Doen_Driven_Wheel
+            physics Physics {
             }
           }
-        ]
-        name "solid(11)"
-        boundingObject USE On_Driven_Wheel
-        physics Physics {
         }
-      }
-    }
-    DEF On_Driven_Wheel_6 HingeJoint {
-      jointParameters HingeJointParameters {
-        axis 0 0 1
-        anchor 0.09 0.117 -0.064
-      }
-      endPoint Solid {
-        translation 0.09 0.117 -0.064
-        rotation 1 0 0 1.5708
-        children [
-          DEF On_Driven_Wheel Shape {
-            appearance PBRAppearance {
-              baseColor 1 0.666667 0.498039
+        DEF On_Driven_Wheel_2 HingeJoint {
+          jointParameters HingeJointParameters {
+            axis 0 0 1
+            anchor 0 0.117 0.064
+          }
+          device [
+            RotationalMotor {
+              name "motor1"
+              maxVelocity 50
             }
-            geometry Cylinder {
-              height 0.01
-              radius 0.009
+          ]
+          endPoint Solid {
+            translation 0 0.117 0.064
+            rotation 1 0 0 1.5708
+            children [
+              DEF On_Driven_Wheel Shape {
+                appearance PBRAppearance {
+                  baseColor 1 0.666667 0.498039
+                }
+                geometry Cylinder {
+                  height 0.01
+                  radius 0.009
+                }
+              }
+            ]
+            name "solid(5)"
+            boundingObject USE On_Driven_Wheel
+            physics Physics {
             }
           }
-        ]
-        name "solid(10)"
-        boundingObject USE On_Driven_Wheel
-        physics Physics {
         }
-      }
-    }
-    DEF On_Driven_Wheel_5 HingeJoint {
-      jointParameters HingeJointParameters {
-        axis 0 0 1
-        anchor -0.09 0.117 -0.064
-      }
-      endPoint Solid {
-        translation -0.09 0.117 -0.064
-        rotation 1 0 0 1.5708
-        children [
-          DEF On_Driven_Wheel Shape {
-            appearance PBRAppearance {
-              baseColor 1 0.666667 0.498039
-            }
-            geometry Cylinder {
-              height 0.01
-              radius 0.009
+        DEF On_Driven_Wheel_1 HingeJoint {
+          jointParameters HingeJointParameters {
+            axis 0 0 1
+            anchor 0 0.117 -0.064
+          }
+          endPoint Solid {
+            translation 0 0.117 -0.064
+            rotation 1 0 0 1.5708
+            children [
+              DEF On_Driven_Wheel Shape {
+                appearance PBRAppearance {
+                  baseColor 1 0.666667 0.498039
+                }
+                geometry Cylinder {
+                  height 0.01
+                  radius 0.009
+                }
+              }
+            ]
+            name "solid(6)"
+            boundingObject USE On_Driven_Wheel
+            physics Physics {
             }
           }
-        ]
-        name "solid(9)"
-        boundingObject USE On_Driven_Wheel
-        physics Physics {
         }
-      }
-    }
-    DEF On_Driven_Wheel_4 HingeJoint {
-      jointParameters HingeJointParameters {
-        axis 0 0 1
-        anchor 0.13 0.117 -0.064
-      }
-      endPoint Solid {
-        translation 0.13 0.117 -0.064
-        rotation 1 0 0 1.5708
-        children [
-          DEF On_Driven_Wheel Shape {
-            appearance PBRAppearance {
-              baseColor 1 0.666667 0.498039
-            }
-            geometry Cylinder {
-              height 0.01
-              radius 0.009
+        DEF On_Driven_Wheel_3 HingeJoint {
+          jointParameters HingeJointParameters {
+            axis 0 0 1
+            anchor -0.13 0.117 -0.064
+          }
+          endPoint Solid {
+            translation -0.13 0.117 -0.064
+            rotation 1 0 0 1.5708
+            children [
+              DEF On_Driven_Wheel Shape {
+                appearance PBRAppearance {
+                  baseColor 1 0.666667 0.498039
+                }
+                geometry Cylinder {
+                  height 0.01
+                  radius 0.009
+                }
+              }
+            ]
+            name "solid(7)"
+            boundingObject USE On_Driven_Wheel
+            physics Physics {
             }
           }
-        ]
-        name "solid(8)"
-        boundingObject USE On_Driven_Wheel
-        physics Physics {
         }
-      }
-    }
-    DEF On_Driven_Wheel_3 HingeJoint {
-      jointParameters HingeJointParameters {
-        axis 0 0 1
-        anchor -0.13 0.117 -0.064
-      }
-      endPoint Solid {
-        translation -0.13 0.117 -0.064
-        rotation 1 0 0 1.5708
-        children [
-          DEF On_Driven_Wheel Shape {
-            appearance PBRAppearance {
-              baseColor 1 0.666667 0.498039
-            }
-            geometry Cylinder {
-              height 0.01
-              radius 0.009
+        DEF On_Driven_Wheel_4 HingeJoint {
+          jointParameters HingeJointParameters {
+            axis 0 0 1
+            anchor 0.13 0.117 -0.064
+          }
+          endPoint Solid {
+            translation 0.13 0.117 -0.064
+            rotation 1 0 0 1.5708
+            children [
+              DEF On_Driven_Wheel Shape {
+                appearance PBRAppearance {
+                  baseColor 1 0.666667 0.498039
+                }
+                geometry Cylinder {
+                  height 0.01
+                  radius 0.009
+                }
+              }
+            ]
+            name "solid(8)"
+            boundingObject USE On_Driven_Wheel
+            physics Physics {
             }
           }
-        ]
-        name "solid(7)"
-        boundingObject USE On_Driven_Wheel
-        physics Physics {
         }
-      }
-    }
-    DEF On_Driven_Wheel_1 HingeJoint {
-      jointParameters HingeJointParameters {
-        axis 0 0 1
-        anchor 0 0.117 -0.064
-      }
-      endPoint Solid {
-        translation 0 0.117 -0.064
-        rotation 1 0 0 1.5708
-        children [
-          DEF On_Driven_Wheel Shape {
-            appearance PBRAppearance {
-              baseColor 1 0.666667 0.498039
-            }
-            geometry Cylinder {
-              height 0.01
-              radius 0.009
+        DEF On_Driven_Wheel_5 HingeJoint {
+          jointParameters HingeJointParameters {
+            axis 0 0 1
+            anchor -0.09 0.117 -0.064
+          }
+          endPoint Solid {
+            translation -0.09 0.117 -0.064
+            rotation 1 0 0 1.5708
+            children [
+              DEF On_Driven_Wheel Shape {
+                appearance PBRAppearance {
+                  baseColor 1 0.666667 0.498039
+                }
+                geometry Cylinder {
+                  height 0.01
+                  radius 0.009
+                }
+              }
+            ]
+            name "solid(9)"
+            boundingObject USE On_Driven_Wheel
+            physics Physics {
             }
           }
-        ]
-        name "solid(6)"
-        boundingObject USE On_Driven_Wheel
-        physics Physics {
         }
-      }
-    }
-    DEF On_Driven_Wheel_2 HingeJoint {
-      jointParameters HingeJointParameters {
-        axis 0 0 1
-        anchor 0 0.117 0.064
-      }
-      device [
-        RotationalMotor {
-          name "motor1"
-          maxVelocity 50
+        DEF On_Driven_Wheel_6 HingeJoint {
+          jointParameters HingeJointParameters {
+            axis 0 0 1
+            anchor 0.09 0.117 -0.064
+          }
+          endPoint Solid {
+            translation 0.09 0.117 -0.064
+            rotation 1 0 0 1.5708
+            children [
+              DEF On_Driven_Wheel Shape {
+                appearance PBRAppearance {
+                  baseColor 1 0.666667 0.498039
+                }
+                geometry Cylinder {
+                  height 0.01
+                  radius 0.009
+                }
+              }
+            ]
+            name "solid(10)"
+            boundingObject USE On_Driven_Wheel
+            physics Physics {
+            }
+          }
+        }
+        DEF On_Driven_Wheel_3 HingeJoint {
+          jointParameters HingeJointParameters {
+            axis 0 0 1
+            anchor -0.13 0.117 0.064
+          }
+          endPoint Solid {
+            translation -0.13 0.117 0.064
+            rotation 1 0 0 1.5708
+            children [
+              DEF On_Driven_Wheel Shape {
+                appearance PBRAppearance {
+                  baseColor 1 0.666667 0.498039
+                }
+                geometry Cylinder {
+                  height 0.01
+                  radius 0.009
+                }
+              }
+            ]
+            name "solid(11)"
+            boundingObject USE On_Driven_Wheel
+            physics Physics {
+            }
+          }
+        }
+        DEF On_Driven_Wheel_4 HingeJoint {
+          jointParameters HingeJointParameters {
+            axis 0 0 1
+            anchor 0.13 0.117 0.064
+          }
+          endPoint Solid {
+            translation 0.13 0.117 0.064
+            rotation 1 0 0 1.5708
+            children [
+              DEF On_Driven_Wheel Shape {
+                appearance PBRAppearance {
+                  baseColor 1 0.666667 0.498039
+                }
+                geometry Cylinder {
+                  height 0.01
+                  radius 0.009
+                }
+              }
+            ]
+            name "solid(12)"
+            boundingObject USE On_Driven_Wheel
+            physics Physics {
+            }
+          }
+        }
+        DEF On_Driven_Wheel_5 HingeJoint {
+          jointParameters HingeJointParameters {
+            axis 0 0 1
+            anchor -0.09 0.117 0.064
+          }
+          endPoint Solid {
+            translation -0.09 0.117 0.064
+            rotation 1 0 0 1.5708
+            children [
+              DEF On_Driven_Wheel Shape {
+                appearance PBRAppearance {
+                  baseColor 1 0.666667 0.498039
+                }
+                geometry Cylinder {
+                  height 0.01
+                  radius 0.009
+                }
+              }
+            ]
+            name "solid(13)"
+            boundingObject USE On_Driven_Wheel
+            physics Physics {
+            }
+          }
+        }
+        DEF On_Driven_Wheel_6 HingeJoint {
+          jointParameters HingeJointParameters {
+            axis 0 0 1
+            anchor 0.09 0.117 0.064
+          }
+          endPoint Solid {
+            translation 0.09 0.117 0.064
+            rotation 1 0 0 1.5708
+            children [
+              DEF On_Driven_Wheel Shape {
+                appearance PBRAppearance {
+                  baseColor 1 0.666667 0.498039
+                }
+                geometry Cylinder {
+                  height 0.01
+                  radius 0.009
+                }
+              }
+            ]
+            name "solid(14)"
+            boundingObject USE On_Driven_Wheel
+            physics Physics {
+            }
+          }
         }
       ]
-      endPoint Solid {
-        translation 0 0.117 0.064
-        rotation 1 0 0 1.5708
-        children [
-          DEF On_Driven_Wheel Shape {
-            appearance PBRAppearance {
-              baseColor 1 0.666667 0.498039
-            }
-            geometry Cylinder {
-              height 0.01
-              radius 0.009
-            }
-          }
-        ]
-        name "solid(5)"
-        boundingObject USE On_Driven_Wheel
-        physics Physics {
-        }
-      }
-    }
-    DEF Doen_Driven_Wheel_1 HingeJoint {
-      jointParameters HingeJointParameters {
-        axis 0 0 1
-        anchor 0 0.035 0.06
-      }
-      endPoint Solid {
-        translation 0 0.035 0.06
-        rotation 1 0 0 1.5708
-        children [
-          DEF Doen_Driven_Wheel Shape {
-            appearance PBRAppearance {
-              baseColor 1 0.666667 0.498039
-            }
-            geometry Cylinder {
-              height 0.015
-              radius 0.03
-            }
-          }
-        ]
-        name "solid(1)"
-        boundingObject USE Doen_Driven_Wheel
-        physics Physics {
-        }
-      }
-    }
-    DEF Doen_Driven_Wheel_2 HingeJoint {
-      jointParameters HingeJointParameters {
-        axis 0 0 1
-        anchor 0 0.035 -0.06
-      }
-      endPoint Solid {
-        translation 0 0.035 -0.06
-        rotation 1 0 0 1.5708
-        children [
-          DEF Doen_Driven_Wheel Shape {
-            appearance PBRAppearance {
-              baseColor 1 0.666667 0.498039
-            }
-            geometry Cylinder {
-              height 0.015
-              radius 0.03
-            }
-          }
-        ]
-        name "solid(2)"
-        boundingObject USE Doen_Driven_Wheel
-        physics Physics {
-        }
-      }
-    }
-    DEF Intermediate_Driven_Wheel_1 HingeJoint {
-      jointParameters HingeJointParameters {
-        axis 0 1 0
-        anchor 0 0.08 0.114
-      }
-      endPoint Solid {
-        translation 0 0.08 0.114
-        rotation 1 0 0 0
-        children [
-          DEF Intermediate_Driven_Wheel Shape {
-            appearance PBRAppearance {
-              baseColor 1 0.666667 0.498039
-            }
-            geometry Cylinder {
-              height 0.01
-              radius 0.015
-            }
-          }
-        ]
-        name "solid(3)"
-        boundingObject USE Intermediate_Driven_Wheel
-        physics Physics {
-        }
-      }
-    }
-    DEF Intermediate_Driven_Wheel_2 HingeJoint {
-      jointParameters HingeJointParameters {
-        axis 0 1 0
-        anchor 0 0.08 -0.114
-      }
-      endPoint Solid {
-        translation 0 0.08 -0.114
-        rotation 1 0 0 0
-        children [
-          DEF Intermediate_Driven_Wheel Shape {
-            appearance PBRAppearance {
-              baseColor 1 0.666667 0.498039
-            }
-            geometry Cylinder {
-              height 0.01
-              radius 0.015
-            }
-          }
-        ]
-        name "solid(4)"
-        boundingObject USE Intermediate_Driven_Wheel
-        physics Physics {
-        }
-      }
     }
     DEF Frame Transform {
       children [
