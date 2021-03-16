@@ -5,6 +5,7 @@
 #include <webots/gyro.h>
 #include <webots/accelerometer.h>
 #include <webots/compass.h>
+#include <webots/camera.h>
 #include <stdio.h>
 #include <string.h>
 #include <Math.h>
@@ -57,7 +58,10 @@ int main(int argc, char **argv)
   COMPASS = wb_robot_get_device("compass1");
   wb_compass_enable(COMPASS, TIME_STEP);
 
-  
+  WbDeviceTag CAMERA;
+  CAMERA = wb_robot_get_device("camera1");
+  wb_camera_enable(CAMERA, TIME_STEP);
+
   double Eular[3] = {0};
   double Angular_velocity[3] = {0};
   double Acceleration[3] = {0};
@@ -69,6 +73,7 @@ int main(int argc, char **argv)
 
   wb_keyboard_enable(TIME_STEP);
   wb_mouse_enable(TIME_STEP);
+  wb_camera_recognition_enable(CAMERA, TIME_STEP);
 
   while (wb_robot_step(TIME_STEP) != -1)
   {
@@ -99,13 +104,18 @@ int main(int argc, char **argv)
     // printf("xAxis = %lf:\n", Magnetometer[0]);
     // printf("yAxis = %lf:\n", Magnetometer[1]);
     // printf("zAxis = %lf:\n", Magnetometer[2]);
-    WbMouseState Mouse1 = wb_mouse_get_state();
+    const unsigned char *image = wb_camera_get_image(CAMERA);
+    wb_camera_save_image(CAMERA, image, 50);
 
-    printf("mouse.left = %d:\n", Mouse1.left);
-    printf("mouse.middle = %d:\n", Mouse1.middle);
-    printf("mouse.right = %d:\n", Mouse1.right);
-    printf("mouse.u = %lf:\n", Mouse1.u);
-    printf("mouse.v = %lf:\n", Mouse1.v);
+    WbMouseState Mouse1 = wb_mouse_get_state();
+    bool shifou = wb_camera_recognition_has_segmentation(CAMERA);
+
+    printf("是否识别%d:\n", shifou);
+    //printf("mouse.left = %d:\n", Mouse1.left);
+    //printf("mouse.middle = %d:\n", Mouse1.middle);
+    //printf("mouse.right = %d:\n", Mouse1.right);
+    //printf("mouse.u = %lf:\n", Mouse1.u);
+    //printf("mouse.v = %lf:\n", Mouse1.v);
 
     double angle = get_bearing_in_degrees(Magnetometer);
     // printf("angle = %lf:\n", angle);

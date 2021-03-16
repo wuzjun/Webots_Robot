@@ -12,8 +12,8 @@ WorldInfo {
   ]
 }
 Viewpoint {
-  orientation 1 0 0 4.71238898038469
-  position -9.795918493165917e-06 7.802137653988863 -2.8632103771153373e-06
+  orientation -0.9781244988719232 -0.20638696020717648 -0.026017059076505766 0.2563447512089501
+  position 0.4408651294909113 1.1963359456294553 2.195314944563987
 }
 TexturedBackground {
 }
@@ -22,10 +22,58 @@ TexturedBackgroundLight {
 RectangleArena {
   floorSize 5 5
 }
-Robot {
-  translation 0 0.2 0
-  rotation 0.007569052407778009 -0.9999673048671487 -0.0028458113745171276 -0.8709109139030309
+Solid {
+  translation 0.61 0.19 -1.08
   children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1 1 0
+        metalness 0
+      }
+      geometry Box {
+        size 0.3 0.3 0.1
+      }
+    }
+  ]
+  boundingObject Shape {
+    appearance PBRAppearance {
+      baseColor 1 1 0
+      metalness 0
+    }
+    geometry Box {
+      size 0.3 0.3 0.1
+    }
+  }
+  physics Physics {
+  }
+}
+Robot {
+  translation 0.58 0.2 0
+  rotation 0 1 0 -1.5707953071795862
+  children [
+    Camera {
+      translation 0 0.08 0
+      rotation 0 1 0 1.57079
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 1 0.796078 0.054902
+            metalness 0
+          }
+          geometry Cylinder {
+            height 0.02
+            radius 0.01
+          }
+        }
+      ]
+      name "camera1"
+      fieldOfView 1
+      width 1280
+      height 1280
+      recognition Recognition {
+        frameColor 1 1 0
+      }
+    }
     Compass {
       children [
         Shape {

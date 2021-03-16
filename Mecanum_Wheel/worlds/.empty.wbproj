@@ -8,3 +8,4 @@ orthographicViewHeight: 1
 textFiles: 0 "controllers/Keyboard/Keyboard.c"
 globalOptionalRendering: JointAxes
 consoles: Console:All:All
+renderingDevicePerspectives: robot:camera1;0;0.624219;0;0;1979;62;778;660;0
