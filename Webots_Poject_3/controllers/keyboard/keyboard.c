@@ -2,6 +2,7 @@
 #include <webots/keyboard.h>
 #include <webots/camera.h>
 #include <webots/camera_recognition_object.h>
+#include <webots/distance_sensor.h>
 #include <stdio.h>
 #include <Math.h>
 // Added a new include file
@@ -28,10 +29,14 @@ int main(int argc, char **argv)
   wb_camera_enable(CAMERA, TIME_STEP);
   wb_camera_recognition_enable(CAMERA, TIME_STEP);
 
+  WbDeviceTag laser0 = wb_robot_get_device("laser0");
+  wb_distance_sensor_enable(laser0, TIME_STEP);
+
   float left_speed = 0.0f;
   float right_speed = 0.0f;
   float Vx = 0.0f;
   float VOmega = 0.0f;
+  double distance = 0.0;
 
   wb_keyboard_enable(TIME_STEP);
 
@@ -99,8 +104,10 @@ int main(int argc, char **argv)
     printf("\nRecognized %d objects.\n", number_of_objects);
 
     const WbCameraRecognitionObject *objects = wb_camera_recognition_get_objects(CAMERA);
+    distance = wb_distance_sensor_get_value(laser0);
 
-    for (int i = 0; i < number_of_objects; ++i) {
+    for (int i = 0; i < number_of_objects; ++i)
+    {
       printf("Model of object %d: %s\n", i, objects[i].model);
       printf("Id of object %d: %d\n", i, objects[i].id);
       printf("Relative position of object %d: %lf %lf %lf\n", i, objects[i].position[0], objects[i].position[1],
@@ -115,8 +122,7 @@ int main(int argc, char **argv)
         printf("- Color %d/%d: %lf %lf %lf\n", j + 1, objects[i].number_of_colors, objects[i].colors[3 * j],
                objects[i].colors[3 * j + 1], objects[i].colors[3 * j + 2]);
     }
-
-
+    printf("距离是：%lf\n", distance);
   }
 
   wb_robot_cleanup();

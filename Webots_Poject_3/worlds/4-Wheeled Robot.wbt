@@ -4,8 +4,8 @@ WorldInfo {
   coordinateSystem "NUE"
 }
 Viewpoint {
-  orientation 0.08030665883518517 -0.983027005381303 -0.164950741852824 4.034337815680627
-  position 1.399740596133964 0.5145044539139465 -0.8664604395060248
+  orientation 0.12251612100552861 -0.9671729807423243 -0.2226347354205239 4.119798303432947
+  position 0.7917381916571673 0.2685516957226693 -0.2679573371531273
 }
 TexturedBackground {
 }
@@ -15,6 +15,34 @@ Robot {
   translation 0.34 0.0379199 -0.016669
   rotation 0.9748483383080114 -0.21867060654948303 0.04305674313495663 3.3962738064201646e-07
   children [
+    DistanceSensor {
+      translation 0 0 0.1
+      rotation 0 1 0 -1.5707953071795862
+      children [
+        Transform {
+          rotation 0 0 1 -1.5707953071795862
+          children [
+            Shape {
+              appearance PBRAppearance {
+                baseColor 1 1 0
+                metalness 0
+              }
+              geometry Cylinder {
+                height 0.004
+                radius 0.008
+              }
+            }
+          ]
+        }
+      ]
+      name "laser0"
+      lookupTable [
+        0 0 0
+        10 10 0
+      ]
+      type "laser"
+      aperture 0.005
+    }
     Camera {
       translation 0 0.05 0
       rotation 0 1 0 3.14159

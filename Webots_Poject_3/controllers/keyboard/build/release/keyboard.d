@@ -6,4 +6,5 @@ build/release/keyboard.o: keyboard.c \
  E:\Program\ Files\Webots/include/controller/c/webots/camera.h \
  E:\Program\ Files\Webots/include/controller/c/webots/camera_recognition_object.h \
  E:\Program\ Files\Webots/include/controller/c/webots/camera_recognition_object.h \
+ E:\Program\ Files\Webots/include/controller/c/webots/distance_sensor.h \
  E:\Program\ Files\Webots/include/controller/c/webots/motor.h
