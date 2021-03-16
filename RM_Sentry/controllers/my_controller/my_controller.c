@@ -5,7 +5,8 @@
 // Added a new include file
 #include <webots/motor.h>
 
-#define TIME_STEP 64
+#define TIME_STEP 8
+#define SPEED 50.0f
 
 int main(int argc, char **argv)
 {
@@ -37,18 +38,18 @@ int main(int argc, char **argv)
     {
     case 'A':
       Vx = 0.0f;
-      VOmega = -5.0f;
+      VOmega = -SPEED;
       break;
     case 'D':
       Vx = 0.0f;
-      VOmega = 5.0f;
+      VOmega = SPEED;
       break;
     case 'S':
-      Vx = -5.0f;
+      Vx = -SPEED;
       VOmega = 0.0f;
       break;
     case 'W':
-      Vx = 5.0f;
+      Vx = SPEED;
       VOmega = 0.0f;
       break;
     default:
@@ -74,9 +75,9 @@ int main(int argc, char **argv)
     }
 
     //速度分配
-    if (MaxSpeed > 5.0f)
+    if (MaxSpeed > SPEED)
     {
-      Param = (float)5.0f / MaxSpeed;
+      Param = (float)SPEED / MaxSpeed;
     }
 
     left_speed = tempSpeed[0] * Param;
