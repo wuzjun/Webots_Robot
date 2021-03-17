@@ -126,6 +126,7 @@
     <ClCompile Include="Algorithm\Algorithm.c\SpeedRamp.c" />
     <ClCompile Include="Apps\Apps.c\Chassis.c" />
     <ClCompile Include="Apps\Apps.c\Cloud.c" />
+    <ClCompile Include="Devices\Devices.c\Camera.c" />
     <ClCompile Include="Devices\Devices.c\Key.c" />
     <ClCompile Include="Devices\Devices.c\Motor.c" />
     <ClCompile Include="RN_Sentry_VS.c" />
@@ -137,6 +138,7 @@
     <ClInclude Include="Algorithm\Algorithm.h\SpeedRamp.h" />
     <ClInclude Include="Apps\Apps.h\Chassis.h" />
     <ClInclude Include="Apps\Apps.h\Cloud.h" />
+    <ClInclude Include="Devices\Devices.h\Camera.h" />
     <ClInclude Include="Devices\Devices.h\Key.h" />
     <ClInclude Include="Devices\Devices.h\Motor.h" />
   </ItemGroup>

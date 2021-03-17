@@ -22,24 +22,22 @@
 #include <PID.h>
 #include <Chassis.h>
 #include <Cloud.h>
-//#include <webots/keyboard.h>
 #include <Key.h>
-#include <webots/camera.h>
-#include <webots/camera_recognition_object.h>
-//#include <webots/motor.h>
+#include <Camera.h>
 #include <Motor.h>
 #include <webots/distance_sensor.h>
 
 /*
  * You may want to add macros here.
  */
-#define TIME_STEP 8
+ //#define TIME_STEP 8
+int TIME_STEP = 8;
 
- /*
-  * This is the main program.
-  * The arguments of the main function can be specified by the
-  * "controllerArgs" field of the Robot node
-  */
+/*
+ * This is the main program.
+ * The arguments of the main function can be specified by the
+ * "controllerArgs" field of the Robot node
+ */
 int main(int argc, char **argv) {
 	/* necessary to initialize webots stuff */
 	wb_robot_init();
@@ -51,7 +49,8 @@ int main(int argc, char **argv) {
 	 *  WbDeviceTag my_actuator = wb_robot_get_device("my_actuator");
 	 */
 	Motor_Init();
-	Keyboard_Init();
+	Keyboard_Init(TIME_STEP);
+	Camera_Init(TIME_STEP);
 
 	/* main loop
 	 * Perform simulation steps of TIME_STEP milliseconds
@@ -59,9 +58,10 @@ int main(int argc, char **argv) {
 	 */
 	while (wb_robot_step(TIME_STEP) != -1) {
 		get_Keyboard_Control(&All_Speed.VX, &All_Speed.VYaw, &All_Speed.VPitch);
-		printf("Yaw_speed = %f\n", All_Speed.VYaw);
-		printf("Pitch_Speed = %f\n", All_Speed.VPitch);
+		//printf("Yaw_speed = %f\n", All_Speed.VYaw);
+		//printf("Pitch_Speed = %f\n", All_Speed.VPitch);
 
+		Camera_get_Data();
 		Chassic_Control(All_Speed.VX);
 		Cloud_Control(All_Speed.VYaw, All_Speed.VPitch);
 

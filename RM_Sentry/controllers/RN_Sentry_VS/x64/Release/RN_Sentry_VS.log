@@ -1,7 +1,10 @@
-﻿  RN_Sentry_VS.c
+﻿  Camera.c
+d:\webots\rm\rm_sentry\controllers\rn_sentry_vs\devices\devices.c\camera.c(14): warning C4013: “wb_robot_get_device”未定义；假设外部返回 int
+  Key.c
+  RN_Sentry_VS.c
   正在生成代码
-  4 of 9 functions (44.4%) were compiled, the rest were copied from previous compilation.
-    3 functions were new in current compilation
+  5 of 11 functions (45.5%) were compiled, the rest were copied from previous compilation.
+    1 functions were new in current compilation
     0 functions had inline decision re-evaluated but remain unchanged
   已完成代码的生成
   RN_Sentry_VS.vcxproj -> D:\Webots\RM\RM_Sentry\controllers\RN_Sentry_VS\RN_Sentry_VS.exe

@@ -6,7 +6,7 @@
  * Modifications:
  */
 #include <Key.h>
-#define TIME_STEP 8
+
 #define Chaiss_Speed 50.0f
 #define Cloud_YAW_Speed 5.0f
 #define Chaiss_PITCH_Speed 5.0f
@@ -14,7 +14,7 @@
 Speed_t All_Speed;
 
  //º¸≈Ã≥ı ºªØ
-void Keyboard_Init(void)
+void Keyboard_Init(int TIME_STEP)
 {
 	wb_keyboard_enable(TIME_STEP);
 

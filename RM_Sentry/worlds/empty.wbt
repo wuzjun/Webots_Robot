@@ -4,8 +4,8 @@ WorldInfo {
   coordinateSystem "NUE"
 }
 Viewpoint {
-  orientation 0 1 0 0
-  position 3.517657567538661e-12 1.271999999997571 1.8550765597395895
+  orientation 0.663617180077028 0.7408183036546062 0.10392535435073158 5.866531862019156
+  position -1.4294106693124509 1.9855366525236031 3.8244996202807093
 }
 TexturedBackground {
 }
@@ -54,6 +54,34 @@ DEF Sentinel Robot {
                             Solid {
                               rotation 1 0 0 3.14159
                               children [
+                                Camera {
+                                  translation 0 0.01 0.21
+                                  rotation 0 1 0 3.14159
+                                  children [
+                                    Transform {
+                                      rotation 1 0 0 -1.5707953071795862
+                                      children [
+                                        Shape {
+                                          appearance PBRAppearance {
+                                            baseColor 1 1 0
+                                            metalness 0
+                                          }
+                                          geometry Cylinder {
+                                            height 0.04
+                                            radius 0.01
+                                          }
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                  name "camera1"
+                                  width 1280
+                                  height 800
+                                  recognition Recognition {
+                                    frameColor 0 1 0
+                                    frameThickness 3
+                                  }
+                                }
                                 Transform {
                                   translation 0 -0.01 0.07
                                   children [
@@ -823,4 +851,7 @@ Solid {
     density -1
     mass 20
   }
+}
+Apple {
+  translation 0 0.05 -2.25
 }

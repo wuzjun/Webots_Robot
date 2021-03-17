@@ -23,7 +23,7 @@ typedef struct
 
 extern Speed_t All_Speed;
 
-void Keyboard_Init(void);
+void Keyboard_Init(int TIME_STEP);
 void get_Keyboard_Control(float *VX, float *VYaw, float *VPitch);
 
 
