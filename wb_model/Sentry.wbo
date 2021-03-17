@@ -1,18 +1,4 @@
-#VRML_SIM R2021a utf8
-WorldInfo {
-  basicTimeStep 8
-  coordinateSystem "NUE"
-}
-Viewpoint {
-  orientation 0.9481243790916091 0.31764532380144583 0.012712593725334174 6.1988132488658305
-  position -0.26255794283968237 1.4039477254699881 1.5937448746610041
-}
-TexturedBackground {
-}
-TexturedBackgroundLight {
-}
-Floor {
-}
+#VRML_OBJ R2021a utf8
 DEF Sentinel Robot {
   translation 0 1.155 0
   children [
@@ -344,59 +330,6 @@ DEF Sentinel Robot {
     }
     DEF Chaiss_Wheel Group {
       children [
-        DistanceSensor {
-          translation -0.055 0 5.30718e-08
-          rotation 0 1 0 3.14159
-          children [
-            Transform {
-              rotation -0.577349935856137 0.577349935856137 0.5773509358560258 2.09439
-              children [
-                Shape {
-                  appearance PBRAppearance {
-                    baseColor 1 1 0
-                    metalness 0
-                  }
-                  geometry Cylinder {
-                    height 0.01
-                    radius 0.01
-                  }
-                }
-              ]
-            }
-          ]
-          name "laser2"
-          lookupTable [
-            0 0 0
-            0.3 0.3 0
-          ]
-          aperture 0.005
-        }
-        DistanceSensor {
-          translation 0.055 0 0
-          children [
-            Transform {
-              rotation -0.577349935856137 0.577349935856137 0.5773509358560258 2.09439
-              children [
-                Shape {
-                  appearance PBRAppearance {
-                    baseColor 1 1 0
-                    metalness 0
-                  }
-                  geometry Cylinder {
-                    height 0.01
-                    radius 0.01
-                  }
-                }
-              ]
-            }
-          ]
-          name "laser1"
-          lookupTable [
-            0 0 0
-            0.3 0.3 0
-          ]
-          aperture 0.005
-        }
         DEF Intermediate_Driven_Wheel_2 HingeJoint {
           jointParameters HingeJointParameters {
             axis 0 1 0
@@ -869,67 +802,4 @@ DEF Sentinel Robot {
     mass 10
   }
   controller "RN_Sentry_VS"
-}
-Solid {
-  translation 0 1.24 0
-  children [
-    DEF track Group {
-      children [
-        Transform {
-          translation 0 -1.2 0
-          children [
-            Shape {
-              appearance PBRAppearance {
-                baseColor 0 0 1
-              }
-              geometry Box {
-                size 3.4 0.05 2.9
-              }
-            }
-          ]
-        }
-        Transform {
-          translation 1.19 -0.57 0
-          children [
-            Shape {
-              appearance PBRAppearance {
-                baseColor 0.666667 0 0
-              }
-              geometry Cylinder {
-                height 1.2
-                radius 0.1
-              }
-            }
-          ]
-        }
-        Transform {
-          translation -1.19 -0.57 0
-          children [
-            Shape {
-              appearance PBRAppearance {
-                baseColor 0.666667 0 0
-              }
-              geometry Cylinder {
-                height 1.2
-                radius 0.1
-              }
-            }
-          ]
-        }
-        Shape {
-          appearance PBRAppearance {
-            baseColor 0 0.666667 0
-          }
-          geometry Box {
-            size 2.6 0.05 0.2
-          }
-        }
-      ]
-    }
-  ]
-  boundingObject USE track
-  physics Physics {
-    density -1
-    mass 20
-  }
 }
