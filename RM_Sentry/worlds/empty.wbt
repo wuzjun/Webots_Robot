@@ -4,8 +4,8 @@ WorldInfo {
   coordinateSystem "NUE"
 }
 Viewpoint {
-  orientation 0.663617180077028 0.7408183036546062 0.10392535435073158 5.866531862019156
-  position -1.4294106693124509 1.9855366525236031 3.8244996202807093
+  orientation -0.7243094530289912 -0.6663017586469289 -0.17725062109017695 0.7039637707378197
+  position -1.6908985737005662 2.56315878425627 2.2634103482917562
 }
 TexturedBackground {
 }
@@ -54,6 +54,34 @@ DEF Sentinel Robot {
                             Solid {
                               rotation 1 0 0 3.14159
                               children [
+                                DistanceSensor {
+                                  translation -4.07848e-08 0.01 0.22
+                                  rotation 0 1 0 -1.5707953071795862
+                                  children [
+                                    Transform {
+                                      rotation -0.577349935856137 0.577349935856137 0.5773509358560258 2.09439
+                                      children [
+                                        Shape {
+                                          appearance PBRAppearance {
+                                            baseColor 1 1 0
+                                            metalness 0
+                                          }
+                                          geometry Cylinder {
+                                            height 0.01
+                                            radius 0.01
+                                          }
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                  name "laser0"
+                                  lookupTable [
+                                    0 0 0
+                                    10 10 0
+                                  ]
+                                  type "laser"
+                                  aperture 0.005
+                                }
                                 Camera {
                                   translation 0 0.01 0.21
                                   rotation 0 1 0 3.14159

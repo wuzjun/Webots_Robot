@@ -25,7 +25,7 @@
 #include <Key.h>
 #include <Camera.h>
 #include <Motor.h>
-#include <webots/distance_sensor.h>
+#include <Laser.h>
 
 /*
  * You may want to add macros here.
@@ -51,6 +51,7 @@ int main(int argc, char **argv) {
 	Motor_Init();
 	Keyboard_Init(TIME_STEP);
 	Camera_Init(TIME_STEP);
+	Laser_Init(TIME_STEP);
 
 	/* main loop
 	 * Perform simulation steps of TIME_STEP milliseconds
@@ -64,6 +65,7 @@ int main(int argc, char **argv) {
 		Camera_get_Data();
 		Chassic_Control(All_Speed.VX);
 		Cloud_Control(All_Speed.VYaw, All_Speed.VPitch);
+		Laser_get_Data();
 
 
 	};

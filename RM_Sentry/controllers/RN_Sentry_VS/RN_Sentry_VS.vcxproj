@@ -128,6 +128,7 @@
     <ClCompile Include="Apps\Apps.c\Cloud.c" />
     <ClCompile Include="Devices\Devices.c\Camera.c" />
     <ClCompile Include="Devices\Devices.c\Key.c" />
+    <ClCompile Include="Devices\Devices.c\Laser.c" />
     <ClCompile Include="Devices\Devices.c\Motor.c" />
     <ClCompile Include="RN_Sentry_VS.c" />
   </ItemGroup>
@@ -140,6 +141,7 @@
     <ClInclude Include="Apps\Apps.h\Cloud.h" />
     <ClInclude Include="Devices\Devices.h\Camera.h" />
     <ClInclude Include="Devices\Devices.h\Key.h" />
+    <ClInclude Include="Devices\Devices.h\Laser.h" />
     <ClInclude Include="Devices\Devices.h\Motor.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
