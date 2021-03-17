@@ -4,8 +4,8 @@ WorldInfo {
   coordinateSystem "NUE"
 }
 Viewpoint {
-  orientation 0.9866442709379888 0.09970410289941756 0.12881061481984674 6.116610603177084
-  position -0.0886883164056351 1.389350804190346 1.5689655106869766
+  orientation 0 1 0 0
+  position 3.517657567538661e-12 1.271999999997571 1.8550765597395895
 }
 TexturedBackground {
 }
@@ -52,6 +52,7 @@ DEF Sentinel Robot {
                           rotation 0 0 1 -1.5707953071795862
                           children [
                             Solid {
+                              rotation 1 0 0 3.14159
                               children [
                                 Transform {
                                   translation 0 -0.01 0.07
@@ -758,7 +759,7 @@ DEF Sentinel Robot {
     density -1
     mass 10
   }
-  controller "my_controller"
+  controller "RN_Sentry_VS"
 }
 Solid {
   translation 0 1.24 0
