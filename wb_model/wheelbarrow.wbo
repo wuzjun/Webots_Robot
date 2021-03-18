@@ -1,0 +1,196 @@
+#VRML_OBJ R2021a utf8
+Robot {
+  translation 0.34 0.0379199 -0.016669
+  rotation 0.9748483383080114 -0.21867060654948303 0.04305674313495663 3.3962738064201646e-07
+  children [
+    DistanceSensor {
+      translation 0 0 0.1
+      rotation 0 1 0 -1.5707953071795862
+      children [
+        Transform {
+          rotation 0 0 1 -1.5707953071795862
+          children [
+            Shape {
+              appearance PBRAppearance {
+                baseColor 1 1 0
+                metalness 0
+              }
+              geometry Cylinder {
+                height 0.004
+                radius 0.008
+              }
+            }
+          ]
+        }
+      ]
+      name "laser0"
+      lookupTable [
+        0 0 0
+        10 10 0
+      ]
+      type "laser"
+      aperture 0.005
+    }
+    Camera {
+      translation 0 0.05 0
+      rotation 0 1 0 3.14159
+      children [
+        DEF yuanzhu Shape {
+          appearance PBRAppearance {
+            baseColor 1 1 0
+            metalness 0
+          }
+          geometry Cylinder {
+            height 0.03
+            radius 0.019
+          }
+        }
+      ]
+      name "camera1"
+      width 1280
+      height 640
+      antiAliasing TRUE
+      recognition Recognition {
+        frameColor 0 1 0
+        frameThickness 3
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        position 3.83999944944406
+        anchor 0.06 0 0.05
+      }
+      device [
+        RotationalMotor {
+          name "motor1"
+          maxVelocity 500
+        }
+      ]
+      endPoint DEF WHEEL1 Solid {
+        translation 0.06 0 0.05
+        rotation 0.6847715324080138 -0.6847740477189209 -0.24934404339030364 3.630313322983572
+        children [
+          DEF WHEEL Shape {
+            appearance PBRAppearance {
+              baseColor 0 1 0
+            }
+            geometry Cylinder {
+              height 0.02
+              radius 0.04
+            }
+          }
+        ]
+        name "solid(3)"
+        boundingObject USE WHEEL
+        physics DEF WHEEL_PH Physics {
+        }
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        position 3.8400042024119063
+        anchor -0.06 0 0.05
+      }
+      device [
+        RotationalMotor {
+          name "motor2"
+          maxVelocity 500
+        }
+      ]
+      endPoint DEF WHEEL2 Solid {
+        translation -0.06 0 0.05
+        rotation 0.684771217855968 -0.6847737331657195 -0.24934577109375392 3.630316576122256
+        children [
+          DEF WHEEL Shape {
+            appearance PBRAppearance {
+              baseColor 0 1 0
+            }
+            geometry Cylinder {
+              height 0.02
+              radius 0.04
+            }
+          }
+        ]
+        name "solid(2)"
+        boundingObject USE WHEEL
+        physics DEF WHEEL_PH Physics {
+        }
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        position 3.840003003289394
+        anchor 0.06 0 -0.05
+      }
+      device [
+        RotationalMotor {
+          name "motor3"
+          maxVelocity 500
+        }
+      ]
+      endPoint DEF WHEEL3 Solid {
+        translation 0.06 0 -0.05
+        rotation 0.6847712972522833 -0.6847738125623263 -0.24934533500404923 3.6303157549976253
+        children [
+          DEF WHEEL Shape {
+            appearance PBRAppearance {
+              baseColor 0 1 0
+            }
+            geometry Cylinder {
+              height 0.02
+              radius 0.04
+            }
+          }
+        ]
+        name "solid(1)"
+        boundingObject USE WHEEL
+        physics DEF WHEEL_PH Physics {
+        }
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        position 3.8400052673828395
+        anchor -0.06 0 -0.05
+      }
+      device [
+        RotationalMotor {
+          name "motor4"
+          maxVelocity 500
+        }
+      ]
+      endPoint DEF WHEEL4 Solid {
+        translation -0.06 0 -0.05
+        rotation 0.6847711473419686 -0.6847736626514611 -0.2493461583960469 3.6303173053836613
+        children [
+          DEF WHEEL Shape {
+            appearance PBRAppearance {
+              baseColor 0 1 0
+            }
+            geometry Cylinder {
+              height 0.02
+              radius 0.04
+            }
+          }
+        ]
+        boundingObject USE WHEEL
+        physics DEF WHEEL_PH Physics {
+        }
+      }
+    }
+    DEF BODY Shape {
+      appearance PBRAppearance {
+        baseColor 0.333333 0 1
+      }
+      geometry Box {
+        size 0.1 0.05 0.2
+      }
+    }
+  ]
+  boundingObject USE BODY
+  physics Physics {
+    density -1
+    mass 10
+  }
+  controller "keyboard"
+}

@@ -62,7 +62,7 @@ int main(int argc, char **argv) {
 		//printf("Yaw_speed = %f\n", All_Speed.VYaw);
 		//printf("Pitch_Speed = %f\n", All_Speed.VPitch);
 
-		Camera_get_Data();
+		
 		Chassic_Control(All_Speed.VX);
 		Cloud_Control(All_Speed.VYaw, All_Speed.VPitch);
 		Laser_get_Data();

@@ -4,14 +4,35 @@ WorldInfo {
   coordinateSystem "NUE"
 }
 Viewpoint {
-  orientation 0.9481243790916091 0.31764532380144583 0.012712593725334174 6.1988132488658305
-  position -0.26255794283968237 1.4039477254699881 1.5937448746610041
+  orientation 0.9647745202848008 -0.25584729594964994 -0.0612559071803247 5.796682737922136
+  position 0.47882879116635285 2.3654275753817013 2.1245000522084245
 }
 TexturedBackground {
 }
 TexturedBackgroundLight {
 }
 Floor {
+}
+Solid {
+  translation 1.38 0 -3.33
+  children [
+    DEF BOX_1 Shape {
+      appearance PBRAppearance {
+        baseColor 0 1 1
+        metalness 0
+      }
+      geometry Box {
+        size 0.3 0.3 0.1
+      }
+    }
+  ]
+  name "solid(1)"
+  boundingObject USE BOX_1
+  physics Physics {
+  }
+  recognitionColors [
+    0 1 1
+  ]
 }
 DEF Sentinel Robot {
   translation 0 1.155 0
