@@ -1,8 +1,9 @@
-﻿  Laser.c
-d:\webots\rm\rm_sentry\controllers\rn_sentry_vs\devices\devices.c\laser.c(20): warning C4013: “wb_robot_get_device”未定义；假设外部返回 int
+﻿  Vision.c
+  Camera.c
+d:\webots\rm\rm_sentry\controllers\rn_sentry_vs\devices\devices.c\camera.c(15): warning C4013: “wb_robot_get_device”未定义；假设外部返回 int
   正在生成代码
-  6 of 13 functions (46.2%) were compiled, the rest were copied from previous compilation.
+  5 of 14 functions (35.7%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    1 functions had inline decision re-evaluated but remain unchanged
+    0 functions had inline decision re-evaluated but remain unchanged
   已完成代码的生成
   RN_Sentry_VS.vcxproj -> D:\Webots\RM\RM_Sentry\controllers\RN_Sentry_VS\RN_Sentry_VS.exe

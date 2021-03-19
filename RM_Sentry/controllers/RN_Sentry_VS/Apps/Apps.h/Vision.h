@@ -11,15 +11,20 @@
 #include <stdio.h>
 #include <stdint.h>
 #include <Math.h>
-#include <Camera.h>
+//#include <webots/camera.h>
+//#include <webots/camera_recognition_object.h>
+
 
 typedef struct
 {
-	float VX;
-	float VYaw;
-	float VPitch;
+	int ID;
+	int x;
+	int y;
+	int depth;
 }Vision_t;
 
+extern Vision_t Vision;
 
+void Vision_Updata(void);
 
 #endif/*__VISION_H*/

@@ -13,8 +13,11 @@
 #include <Math.h>
 #include <webots/camera.h>
 #include <webots/camera_recognition_object.h>
+#include <Vision.h>
 
 void Camera_Init(int TIME_STEP);
-void Camera_get_Data(void);
+void Camera_get_Data(Vision_t  *Vision_x);
+
+extern WbDeviceTag CAMERA;
 
 #endif/*__CAMERA_H*/

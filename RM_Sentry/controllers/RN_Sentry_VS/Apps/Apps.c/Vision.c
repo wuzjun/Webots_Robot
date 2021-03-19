@@ -6,9 +6,24 @@
  * Modifications:
  */
 #include <Vision.h>
+#include <Camera.h>
 
-void Vision_Updata()
+Vision_t Vision;
+
+void Vision_Updata(void)
 {
-	Camera_get_Data();
+	Camera_get_Data(&Vision);
+
+	printf("ID = %d\n", Vision.ID);
+
+	if (Vision.ID == 0)
+	{
+		Vision.x = 0;
+		Vision.y = 0;
+	}
+
+	printf("Vision_Yaw = %d\n", Vision.x);
+	printf("Vision_Pitch = %d\n", Vision.y);
+
 }
 
