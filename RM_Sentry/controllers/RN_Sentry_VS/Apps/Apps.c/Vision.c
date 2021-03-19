@@ -7,6 +7,7 @@
  */
 #include <Vision.h>
 #include <Camera.h>
+#include <PID.h>
 
 Vision_t Vision;
 
@@ -14,6 +15,8 @@ void Vision_Init(void)
 {
 	Vision.VisionPage_Width = wb_camera_get_width(CAMERA);
 	Vision.VisionPage_Height = wb_camera_get_height(CAMERA);
+	PositionPID_paraReset(&Vision.Vision_Yaw_PID, 0.1, 0, 0, 20, 50);
+	PositionPID_paraReset(&Vision.Vision_Pitch_PID, 0.1, 0, 0, 20, 50);
 }
 
 /*************************************
@@ -41,12 +44,22 @@ void Vision_Updata(void)
 	Vision.Finally_X = Vision_getOffset(Vision.VisionPage_Width, Vision.x);
 	Vision.Finally_Y = Vision_getOffset(Vision.VisionPage_Height, Vision.y);
 
-
-
-	printf("ID = %d\n", Vision.ID);
-	printf("Vision_Yaw = %d\n", Vision.Finally_X);
-	printf("Vision_Pitch = %d\n", Vision.Finally_Y);
+	//printf("ID = %d\n", Vision.ID);
+	//printf("Vision_Yaw = %d\n", Vision.Finally_X);
+	//printf("Vision_Pitch = %d\n", Vision.Finally_Y);
 
 
 }
 
+void Vision_Control(Vision_t *Vison, float *VYaw, float *VPitch)
+{
+	Position_PID(&Vison->Vision_Yaw_PID, 0, Vison->Finally_X);
+	Position_PID(&Vison->Vision_Pitch_PID, 0, Vison->Finally_Y);
+	if (Vision.ID != 0)
+	{
+		*VYaw = Vison->Vision_Yaw_PID.pwm;
+		*VPitch = Vison->Vision_Pitch_PID.pwm;
+	}
+	printf("err_Yaw = %f\n", Vison->Vision_Yaw_PID.err);
+	printf("PID_Yaw = %f\n", Vison->Vision_Yaw_PID.pwm);
+}

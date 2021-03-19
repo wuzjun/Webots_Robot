@@ -1,6 +1,10 @@
 ﻿  Vision.c
+d:\webots\rm\rm_sentry\controllers\rn_sentry_vs\apps\apps.c\vision.c(18): warning C4305: “函数”: 从“double”到“float”截断
+d:\webots\rm\rm_sentry\controllers\rn_sentry_vs\apps\apps.c\vision.c(19): warning C4305: “函数”: 从“double”到“float”截断
+d:\webots\rm\rm_sentry\controllers\rn_sentry_vs\apps\apps.c\vision.c(56): warning C4244: “函数”: 从“int”转换到“float”，可能丢失数据
+d:\webots\rm\rm_sentry\controllers\rn_sentry_vs\apps\apps.c\vision.c(57): warning C4244: “函数”: 从“int”转换到“float”，可能丢失数据
   正在生成代码
-  2 of 16 functions (12.5%) were compiled, the rest were copied from previous compilation.
+  4 of 20 functions (20.0%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
     0 functions had inline decision re-evaluated but remain unchanged
   已完成代码的生成

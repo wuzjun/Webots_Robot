@@ -16,10 +16,6 @@
 #include <Math.h>
   // Added a new include file
 #include <webots/motor.h>
-#include <Filter.h>
-#include <AddMath.h>
-#include <SpeedRamp.h>
-#include <PID.h>
 #include <Chassis.h>
 #include <Cloud.h>
 #include <Key.h>
@@ -64,6 +60,7 @@ int main(int argc, char **argv) {
 		//printf("Pitch_Speed = %f\n", All_Speed.VPitch);
 
 		Vision_Updata();
+		Vision_Control(&Vision, &All_Speed.VYaw, &All_Speed.VPitch);
 		Chassic_Control(All_Speed.VX);
 		Cloud_Control(All_Speed.VYaw, All_Speed.VPitch);
 		Laser_get_Data();
