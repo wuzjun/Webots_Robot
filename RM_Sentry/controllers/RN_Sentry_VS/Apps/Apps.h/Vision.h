@@ -19,9 +19,15 @@ typedef struct
 {
 	int ID;
 	int x;
+	int Finally_X;
 	int y;
+	int Finally_Y;
 	int depth;
+	int VisionPage_Width;
+	int VisionPage_Height;
 }Vision_t;
+
+void Vision_Init(void);
 
 extern Vision_t Vision;
 

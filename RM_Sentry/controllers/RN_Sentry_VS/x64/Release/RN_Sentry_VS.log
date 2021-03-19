@@ -1,8 +1,6 @@
 ﻿  Vision.c
-  Camera.c
-d:\webots\rm\rm_sentry\controllers\rn_sentry_vs\devices\devices.c\camera.c(15): warning C4013: “wb_robot_get_device”未定义；假设外部返回 int
   正在生成代码
-  5 of 14 functions (35.7%) were compiled, the rest were copied from previous compilation.
+  2 of 16 functions (12.5%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
     0 functions had inline decision re-evaluated but remain unchanged
   已完成代码的生成

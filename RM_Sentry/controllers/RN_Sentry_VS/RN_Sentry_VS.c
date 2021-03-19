@@ -52,6 +52,7 @@ int main(int argc, char **argv) {
 	Keyboard_Init(TIME_STEP);
 	Camera_Init(TIME_STEP);
 	Laser_Init(TIME_STEP);
+	Vision_Init();
 
 	/* main loop
 	 * Perform simulation steps of TIME_STEP milliseconds
