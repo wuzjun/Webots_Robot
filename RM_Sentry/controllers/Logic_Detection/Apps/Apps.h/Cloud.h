@@ -26,11 +26,11 @@
 //												  有可能单位时钟节拍内增加得太大，使得函数在周期内的y值实际上取到的值就没有几个 
 //												  而此值较大时，PID的Kp也要相应的增大，才能使其在有限的时钟节拍内追上目标弧度值，否则，可能追不上目标弧度值时，就到了下个时钟节拍，弧度值又变了。
 #define Radian_To_Angle 0.0174532925194			//角度对应的弧度
+#define Yaw_Max_Radian 3.0				//Yaw轴的上限位
+#define Yaw_Min_Radian -3.0                //Yaw轴的下限位
 
 typedef struct {
 
-	float Pitch_Velocity;
-	float Yaw_Velocity;
 	double Eular[3];
 
 	double x_about_Radian;				//关于弧度的sin函数的自变量
@@ -39,10 +39,10 @@ typedef struct {
 	double Yaw_Target_Radian;				//Yaw目标弧度
 
 	uint8_t Pitch_Scan_Dir;				//Pitch轴扫描方向
-	uint8_t Yaw_Scan_Dir;				//Yaw轴扫描方向
+	int8_t Yaw_Scan_Dir;				//Yaw轴扫描方向:注意它需要负值，不能搞个uint8_t数据类型了
+	uint8_t Yaw_Scan_Status;			//Yaw扫描状态标志位
 
 	positionpid_t Pitch_Radian_pid;				//Pitch外环弧度环PID
-	//positionpid_t Pitch_Velocity_pid;				//Pitch内环速度环PID
 	positionpid_t Yaw_Radian_pid;				//Yaw外环弧度环PID
 
 	uint8_t i;				//扫描获取弧度值无法放在While外，可能时IMU初始化完成后，无法立刻获取其当前值
@@ -58,5 +58,8 @@ void Updata_Cloud_data(void);
 void Pitch_Gain_Radian(void);
 void Pitch_Scan_Init(void);
 void Pitch_Scan_Processing(void);
+
+void Yaw_Scan_Init(void);
+void Yaw_Scan_Processing(void);
 
 #endif/*__CLOUD_H*/

@@ -76,13 +76,21 @@ int main(int argc, char **argv) {
 		if (Cloud.i == 0)
 		{
 			Pitch_Scan_Init();
+			Yaw_Scan_Init();
 		}
 
-		printf("Pitch : %lf\n", Cloud.Eular[1]);
-		printf("cloud.x_about_Radian : %lf\n", Cloud.x_about_Radian);
-		Pitch_Scan_Processing();
+		//printf("Pitch : %lf\n", Cloud.Eular[1]);
+		//printf("cloud.x_about_Radian : %lf\n", Cloud.x_about_Radian);
+		//printf("Cloud.Pitch_Target_Radian: %lf\n", Cloud.Pitch_Target_Radian);
 
-		
+		printf("Yaw : %lf\n", Cloud.Eular[2]);
+		printf("Cloud.Yaw_Target_Radian: %lf\n", Cloud.Yaw_Target_Radian);
+		printf("Cloud_Yaw_PWM : %f\n", Cloud.Yaw_Radian_pid.pwm);
+		printf("Cloud_Yaw_Dir: %d\n", Cloud.Yaw_Scan_Dir);
+
+		Pitch_Scan_Processing();
+		Yaw_Scan_Processing();
+
 	};
 
 	/* Enter your cleanup code here */

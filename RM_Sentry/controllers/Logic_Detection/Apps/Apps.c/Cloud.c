@@ -17,8 +17,6 @@ void Cloud_Control(float VYaw, float VPitch)
 
 void Updata_Cloud_data(void)
 {
-	//更新云台Pitch轴的转速
-	Cloud.Pitch_Velocity = wb_motor_get_max_velocity(wheels[2]);
 	
 	//更新IMU的Pitch轴的弧度
 	//将函数返回值的地址中的值复制到数组中
@@ -71,7 +69,7 @@ void Pitch_Scan_Init(void)
 	Cloud.Pitch_Radian_pid.pwm = 0;
 
 	//外环：弧度环初始化
-	PositionPID_paraReset(&Cloud.Pitch_Radian_pid, 6.0f, 0.0f, 0.0f, 80.0f, 0.0f);
+	PositionPID_paraReset(&Cloud.Pitch_Radian_pid, 6.0f, 0.0f, 0.0f, 50.0f, 0.0f);
 	//内环：速度环初始
 	//PositionPID_paraReset(&Cloud.Pitch_Velocity_pid, -3.0f, 0.0f, 0.0f, 80.0f, 0.0f);
 	//不可给内环：它不比6020，它并非是通过电压来控制的。
@@ -87,8 +85,6 @@ void Pitch_Scan_Processing(void)
 
 	Cloud.Pitch_Target_Radian = (Pitch_Max_Radian - Pitch_Centre_Radian)*sin(Cloud.x_about_Radian) +(Pitch_Centre_Radian );
 
-	printf("Cloud.Pitch_Target_Radian: %lf\n", Cloud.Pitch_Target_Radian);
-
 	//外环
 	Position_PID(&Cloud.Pitch_Radian_pid, Cloud.Pitch_Target_Radian, Cloud.Eular[1]);
 	//内环：
@@ -97,5 +93,42 @@ void Pitch_Scan_Processing(void)
 
 	Cloud.x_about_Radian += (Cloud.Pitch_Scan_Dir * uint_Radian_Increment * Kp);
 	
+}
+void Yaw_Scan_Init(void)
+{
+	Cloud.Yaw_Target_Radian = Cloud.Eular[2];					//刚进入扫描时，保存此刻的值
+	Cloud.Yaw_Scan_Dir = 1;
+	Cloud.Yaw_Scan_Status = 1;
+
+	Cloud.Yaw_Radian_pid.pwm = 0;
+
+	Cloud.i = 1;
+
+	//外环：弧度环初始化
+	PositionPID_paraReset(&Cloud.Yaw_Radian_pid, 50.0f, 0.0f, 0.0f, 50.0f, 0.0f);				//Kp得到50 才跟的上
+		
+
+}
+
+void Yaw_Scan_Processing(void)
+{
+	float Kp = 1;
+	Cloud.Yaw_Target_Radian += Cloud.Yaw_Scan_Dir * Radian_To_Angle * Kp;
+	
+	//左右摇摆
+	if (Cloud.Yaw_Target_Radian >= Yaw_Max_Radian && Cloud.Yaw_Scan_Status == 1)
+	{
+		Cloud.Yaw_Scan_Dir = -1;
+		Cloud.Yaw_Scan_Status = 0;
+	}
+	else if (Cloud.Yaw_Target_Radian <= Yaw_Min_Radian && Cloud.Yaw_Scan_Status == 0)
+	{
+		Cloud.Yaw_Scan_Dir = 1;
+		Cloud.Yaw_Scan_Status = 1;
+	}
+	//外环
+	Position_PID(&Cloud.Yaw_Radian_pid, Cloud.Yaw_Target_Radian, Cloud.Eular[2]);
+	//
+	wb_motor_set_velocity(wheels[1], Cloud.Yaw_Radian_pid.pwm);
 
 }

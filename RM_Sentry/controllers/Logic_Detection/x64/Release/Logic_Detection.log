@@ -1,10 +1,11 @@
 ﻿  Cloud.c
-c:\users\86158\github\wzjun_webots\rm_sentry\controllers\logic_detection\apps\apps.c\cloud.c(21): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
-c:\users\86158\github\wzjun_webots\rm_sentry\controllers\logic_detection\apps\apps.c\cloud.c(76): warning C4244: “函数”: 从“float”转换到“uint32_t”，可能丢失数据
-c:\users\86158\github\wzjun_webots\rm_sentry\controllers\logic_detection\apps\apps.c\cloud.c(95): warning C4244: “函数”: 从“double”转换到“float”，可能丢失数据
+c:\users\86158\github\wzjun_webots\rm_sentry\controllers\logic_detection\apps\apps.c\cloud.c(72): warning C4244: “函数”: 从“float”转换到“uint32_t”，可能丢失数据
+c:\users\86158\github\wzjun_webots\rm_sentry\controllers\logic_detection\apps\apps.c\cloud.c(89): warning C4244: “函数”: 从“double”转换到“float”，可能丢失数据
+c:\users\86158\github\wzjun_webots\rm_sentry\controllers\logic_detection\apps\apps.c\cloud.c(108): warning C4244: “函数”: 从“float”转换到“uint32_t”，可能丢失数据
+c:\users\86158\github\wzjun_webots\rm_sentry\controllers\logic_detection\apps\apps.c\cloud.c(130): warning C4244: “函数”: 从“double”转换到“float”，可能丢失数据
   Logic_Detection.c
   正在生成代码
-  0 of 21 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
+  2 of 23 functions ( 8.7%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
     0 functions had inline decision re-evaluated but remain unchanged
   已完成代码的生成
