@@ -30,7 +30,7 @@ void Laser_get_Data(void)
 		distance[i] = wb_distance_sensor_get_value(laser[i]);
 
 	}
-	//printf("distance0 = %lf\n", distance[0]);
+	printf("distance0 = %lf\n", distance[0]);
 	//printf("distance1 = %lf\n", distance[1]);
 	//printf("distance2 = %lf\n", distance[2]);
 }

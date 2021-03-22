@@ -15,7 +15,7 @@ void Cloud_Control(float VYaw, float VPitch)
 	wb_motor_set_velocity(wheels[2], VPitch);
 }
 
-void Updata_Cloud_data(void)
+void Updata_Cloud_Radian_data(void)
 {
 	
 	//更新IMU的Pitch轴的弧度
@@ -51,7 +51,6 @@ void Pitch_Gain_Radian(void)
 
 	printf("y = %lf\n", y);
 	
-
 }
 
 void Pitch_Scan_Init(void)

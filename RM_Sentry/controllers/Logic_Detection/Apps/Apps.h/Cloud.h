@@ -53,7 +53,7 @@ typedef struct {
 extern Cloud_t Cloud;
 
 void Cloud_Control(float VYaw, float VPitch);
-void Updata_Cloud_data(void);
+void Updata_Cloud_Radian_data(void);
 
 void Pitch_Gain_Radian(void);
 void Pitch_Scan_Init(void);

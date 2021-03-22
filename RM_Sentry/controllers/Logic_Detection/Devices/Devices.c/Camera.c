@@ -7,14 +7,13 @@
  */
 #include <Camera.h>
 
-
 WbDeviceTag CAMERA;
 
 void Camera_Init(int TIME_STEP)
 {
-	CAMERA = wb_robot_get_device("camera1");
-	wb_camera_enable(CAMERA, TIME_STEP);
-	wb_camera_recognition_enable(CAMERA, TIME_STEP);
+	CAMERA = wb_robot_get_device("camera1");						//获取相机句柄
+	wb_camera_enable(CAMERA, TIME_STEP);							//使能相机
+	wb_camera_recognition_enable(CAMERA, TIME_STEP);				//开启识别
 }
 
 void Camera_get_Data(Vision_t  *Vision)
@@ -27,7 +26,6 @@ void Camera_get_Data(Vision_t  *Vision)
 	//	printf("Position of the object %d on the camera image: %d %d\n", i, objects[i].position_on_image[0],
 	//		objects[i].position_on_image[1]);
 	//}
-
 
 	Vision->x = objects[0].position_on_image[0];
 	Vision->y = objects[0].position_on_image[1];

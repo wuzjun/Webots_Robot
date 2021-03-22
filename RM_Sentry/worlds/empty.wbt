@@ -4,8 +4,8 @@ WorldInfo {
   coordinateSystem "NUE"
 }
 Viewpoint {
-  orientation 0.04741906504826633 -0.9785104559677238 -0.20067067506685043 3.5960554678188594
-  position 0.5717244233375132 1.3643265490518481 -1.2261999254845786
+  orientation 0.9591165962575143 0.2819228986598034 -0.02479584631857798 0.1828917988405901
+  position 0.012111522898325573 0.4319333743930915 3.425863451110868
 }
 TexturedBackground {
 }
@@ -14,8 +14,8 @@ TexturedBackgroundLight {
 Floor {
 }
 Solid {
-  translation 1.38 0.14911710000000003 -3.33
-  rotation -0.9570212759190324 0.2897216658571903 0.01310090726788463 -4.82099086714567e-17
+  translation 0 0.149117 -3.33
+  rotation -0.9931847522129172 0.11585533840693421 0.012711747888494418 -1.3249550435563724e-16
   children [
     DEF BOX_1 Shape {
       appearance PBRAppearance {
@@ -36,15 +36,15 @@ Solid {
   ]
 }
 DEF Sentinel Robot {
-  translation -0.044253112110289865 1.137411118321969 0.00015911924846557105
-  rotation 0.4156325933748112 0.9095303617613746 -0.0020170172909388085 -0.0028584327948909453
+  translation -0.037916152472131634 1.1375149852920299 -0.00022416250414445532
+  rotation -0.17553235098071313 0.9844480591202568 -0.007100186866759384 -0.0025759904475212373
   children [
     DEF Cloud Transform {
       translation 0 -0.02 0
       children [
         HingeJoint {
           jointParameters HingeJointParameters {
-            position 112.57065921437389
+            position 109.19134421500861
             axis 0 1 0
           }
           device [
@@ -54,14 +54,14 @@ DEF Sentinel Robot {
             }
           ]
           endPoint Solid {
-            translation 1.526466121086669e-10 -6.548912334869426e-06 -2.520856980699817e-10
-            rotation -2.2954433463547578e-07 -0.9999999999999708 -7.513941369253748e-08 0.2648861429562541
+            translation -2.0771728017411192e-10 -6.548912334869428e-06 2.0904956081454305e-10
+            rotation 2.24117e-07 -1 1.42425e-07 0.240809
             children [
               DEF shoot Group {
                 children [
                   HingeJoint {
                     jointParameters HingeJointParameters {
-                      position 0.27681890580153834
+                      position -0.527929557099854
                       anchor -0.09 -0.11 0
                     }
                     device [
@@ -72,7 +72,7 @@ DEF Sentinel Robot {
                     ]
                     endPoint Solid {
                       translation -0.0899999 -0.11 0
-                      rotation 0.13667342368622004 0.1366732843319758 -0.9811425934122918 1.5898316323437487
+                      rotation -0.252458809490963 -0.25245855208022683 -0.9340927304031227 1.6389221118620847
                       children [
                         Transform {
                           translation 0 0.09 0
@@ -198,13 +198,13 @@ DEF Sentinel Robot {
                         }
                         HingeJoint {
                           jointParameters HingeJointParameters {
-                            position 28.499851824666827
+                            position 30.129370667574623
                             axis 0 1 0
                             anchor 0 0.18 0
                           }
                           endPoint Solid {
                             translation 0 0.18 0
-                            rotation 0 1 0 3.367110595948481
+                            rotation 0 1 0 4.996629438856277
                             children [
                               DEF Cloud_false_Motor Shape {
                                 appearance PBRAppearance {
@@ -449,13 +449,13 @@ DEF Sentinel Robot {
         }
         DEF Intermediate_Driven_Wheel_2 HingeJoint {
           jointParameters HingeJointParameters {
-            position 2.9348098208807243
+            position 117.49400445294232
             axis 0 1 0
             anchor 0 0.08 -0.114
           }
           endPoint Solid {
             translation 0 0.08 -0.114
-            rotation 0 1 0 2.9348098208807243
+            rotation 0 1 0 4.396668923709764
             children [
               DEF Intermediate_Driven_Wheel Shape {
                 appearance PBRAppearance {
@@ -475,13 +475,13 @@ DEF Sentinel Robot {
         }
         DEF Intermediate_Driven_Wheel_1 HingeJoint {
           jointParameters HingeJointParameters {
-            position -2.982724062140697
+            position 171.8727239952534
             axis 0 1 0
             anchor 0 0.08 0.114
           }
           endPoint Solid {
             translation 0 0.08 0.114
-            rotation 0 -1 0 2.982724062140697
+            rotation 0 -1 0 4.0564646057750124
             children [
               DEF Intermediate_Driven_Wheel Shape {
                 appearance PBRAppearance {
@@ -501,13 +501,13 @@ DEF Sentinel Robot {
         }
         DEF Doen_Driven_Wheel_2 HingeJoint {
           jointParameters HingeJointParameters {
-            position -1.4740329146576292
+            position -1.2635119838330773
             axis 0 0 1
             anchor 0 0.035 -0.06
           }
           endPoint Solid {
             translation 0 0.035 -0.06
-            rotation 0.6145745697713387 -0.5578083828784415 -0.5578063339376058 2.0394614781834766
+            rotation 0.6948666327786334 -0.5085087326128074 -0.5085068647593661 1.9270512231777144
             children [
               DEF Doen_Driven_Wheel Shape {
                 appearance PBRAppearance {
@@ -527,13 +527,18 @@ DEF Sentinel Robot {
         }
         DEF Doen_Driven_Wheel_1 HingeJoint {
           jointParameters HingeJointParameters {
-            position -1.4843582287634567
+            position -1.2735817224935708
             axis 0 0 1
             anchor 0 0.035 0.06
           }
+          device [
+            PositionSensor {
+              name "Encoder"
+            }
+          ]
           endPoint Solid {
             translation 0 0.035 0.06
-            rotation 0.6106063873378061 -0.5599830994900636 -0.5599810425610625 2.0452322498024973
+            rotation 0.6910672787843843 -0.5110909582312402 -0.5110890808927722 1.932184775122279
             children [
               DEF Doen_Driven_Wheel Shape {
                 appearance PBRAppearance {
@@ -545,7 +550,7 @@ DEF Sentinel Robot {
                 }
               }
             ]
-            name "solid(1)"
+            name "Driven_Pulley"
             boundingObject USE Doen_Driven_Wheel
             physics Physics {
             }
@@ -553,7 +558,7 @@ DEF Sentinel Robot {
         }
         DEF On_Driven_Wheel_2 HingeJoint {
           jointParameters HingeJointParameters {
-            position 17.599996299940212
+            position 17.79999610233801
             axis 0 0 1
             anchor 0 0.117 0.064
           }
@@ -565,7 +570,7 @@ DEF Sentinel Robot {
           ]
           endPoint Solid {
             translation 0 0.117 0.064
-            rotation -0.7001211795505201 0.50489217000077 0.5048903154316807 4.363203778687171
+            rotation -0.7737517438218436 0.4479451489971331 0.44794350360574753 4.458648580779349
             children [
               DEF On_Driven_Wheel Shape {
                 appearance PBRAppearance {
@@ -585,13 +590,13 @@ DEF Sentinel Robot {
         }
         DEF On_Driven_Wheel_1 HingeJoint {
           jointParameters HingeJointParameters {
-            position 4.9121886272843795
+            position 4.210568234515483
             axis 0 0 1
             anchor 0 0.117 -0.064
           }
           endPoint Solid {
             translation 0 0.117 -0.064
-            rotation -0.654059365910064 0.5348871131821156 0.5348851484356502 4.30003651566676
+            rotation -0.3861192742974638 0.6522710447313892 0.6522686488104591 3.878556710513159
             children [
               DEF On_Driven_Wheel Shape {
                 appearance PBRAppearance {
@@ -611,13 +616,13 @@ DEF Sentinel Robot {
         }
         DEF On_Driven_Wheel_3 HingeJoint {
           jointParameters HingeJointParameters {
-            position 4.912005934859692
+            position 4.210388322794334
             axis 0 0 1
             anchor -0.13 0.117 -0.064
           }
           endPoint Solid {
             translation -0.13 0.117 -0.064
-            rotation -0.6539896036397318 0.5349297619770306 0.5349277970739078 4.299938792306161
+            rotation -0.3860518514208612 0.6522909986270374 0.6522886026328131 3.878439357942872
             children [
               DEF On_Driven_Wheel Shape {
                 appearance PBRAppearance {
@@ -637,13 +642,13 @@ DEF Sentinel Robot {
         }
         DEF On_Driven_Wheel_4 HingeJoint {
           jointParameters HingeJointParameters {
-            position 4.91237219513478
+            position 4.210749021663764
             axis 0 0 1
             anchor 0.13 0.117 -0.064
           }
           endPoint Solid {
             translation 0.13 0.117 -0.064
-            rotation -0.6541294613552388 0.5348442526949081 0.5348422881058778 4.300134699449893
+            rotation -0.3861870262445378 0.6522509893216547 0.6522485934743925 3.8786746304892836
             children [
               DEF On_Driven_Wheel Shape {
                 appearance PBRAppearance {
@@ -663,13 +668,13 @@ DEF Sentinel Robot {
         }
         DEF On_Driven_Wheel_5 HingeJoint {
           jointParameters HingeJointParameters {
-            position 4.912061893736688
+            position 4.210443426070962
             axis 0 0 1
             anchor -0.09 0.117 -0.064
           }
           endPoint Solid {
             translation -0.09 0.117 -0.064
-            rotation -0.6540109720118877 0.5349166993803144 0.534914734525173 4.299968725899479
+            rotation -0.38607250156211625 0.6522848876235724 0.6522824916517946 3.8784753010138173
             children [
               DEF On_Driven_Wheel Shape {
                 appearance PBRAppearance {
@@ -689,13 +694,13 @@ DEF Sentinel Robot {
         }
         DEF On_Driven_Wheel_6 HingeJoint {
           jointParameters HingeJointParameters {
-            position 4.912315360982346
+            position 4.2106930431119185
             axis 0 0 1
             anchor 0.09 0.117 -0.064
           }
           endPoint Solid {
             translation 0.09 0.117 -0.064
-            rotation -0.6541077593343038 0.5348575234477813 0.5348555588100048 4.3001043017646445
+            rotation -0.3861660475672537 0.6522571997101896 0.6522548038401152 3.878638118383753
             children [
               DEF On_Driven_Wheel Shape {
                 appearance PBRAppearance {
@@ -715,13 +720,13 @@ DEF Sentinel Robot {
         }
         DEF On_Driven_Wheel_3 HingeJoint {
           jointParameters HingeJointParameters {
-            position 4.948745843753924
+            position 4.246219519033902
             axis 0 0 1
             anchor -0.13 0.117 0.064
           }
           endPoint Solid {
             translation -0.13 0.117 0.064
-            rotation -0.667995049253203 0.526205591157266 0.526203658299753 4.3194326389110484
+            rotation -0.39949927230442184 0.6482296731834418 0.6482272921072714 3.9017394042200024
             children [
               DEF On_Driven_Wheel Shape {
                 appearance PBRAppearance {
@@ -741,13 +746,13 @@ DEF Sentinel Robot {
         }
         DEF On_Driven_Wheel_4 HingeJoint {
           jointParameters HingeJointParameters {
-            position 4.949111962932783
+            position 4.246580076806301
             axis 0 0 1
             anchor 0.13 0.117 0.064
           }
           endPoint Solid {
             translation 0.13 0.117 0.064
-            rotation -0.6681343559471621 0.5261171522942847 0.5261152197616252 4.319625275973725
+            rotation -0.3996347874087205 0.6481879061112543 0.6481855251885025 3.901973120079303
             children [
               DEF On_Driven_Wheel Shape {
                 appearance PBRAppearance {
@@ -767,13 +772,13 @@ DEF Sentinel Robot {
         }
         DEF On_Driven_Wheel_5 HingeJoint {
           jointParameters HingeJointParameters {
-            position 4.948802169775565
+            position 4.246274989456103
             axis 0 0 1
             anchor -0.09 0.117 0.064
           }
           endPoint Solid {
             translation -0.09 0.117 0.064
-            rotation -0.6680164814071132 0.5261919871208641 0.5261900543133214 4.319462277486567
+            rotation -0.3995201205250209 0.6482232486563833 0.6482208676038111 3.9017753614833945
             children [
               DEF On_Driven_Wheel Shape {
                 appearance PBRAppearance {
@@ -793,13 +798,13 @@ DEF Sentinel Robot {
         }
         DEF On_Driven_Wheel_6 HingeJoint {
           jointParameters HingeJointParameters {
-            position 4.949055636889928
+            position 4.246524606363124
             axis 0 0 1
             anchor 0.09 0.117 0.064
           }
           endPoint Solid {
             translation 0.09 0.117 0.064
-            rotation -0.6681129244994946 0.5261307602180988 0.5261288276354548 4.319595641602068
+            rotation -0.3996139386695266 0.6481943329925188 0.6481919520461599 3.9019371647627077
             children [
               DEF On_Driven_Wheel Shape {
                 appearance PBRAppearance {
@@ -933,12 +938,12 @@ DEF Sentinel Robot {
     mass 10
   }
   controller "Logic_Detection"
-  linearVelocity 2.3098758781406838e-06 0.00014682261185744092 -2.346744012787467e-05
-  angularVelocity 0.0006025561857768069 1.0976291642341102e-06 4.140993186818354e-05
+  linearVelocity -0.22512145521089036 -1.5357384404546997e-05 -0.0005455830974194092
+  angularVelocity -0.0003109029942546426 9.425126600956e-07 -3.827739630502169e-05
 }
 Solid {
-  translation 0.00012226338092826414 1.2218803406515943 1.4315556244524743e-05
-  rotation 0.015993912950005403 0.7544920425606679 -0.6561142830796924 -2.689685551757356e-05
+  translation 0.0001382757483703003 1.221879875634384 1.386931143539042e-05
+  rotation 0.030963571991926755 0.8827568466122481 -0.4688087104232391 -2.2996352815560714e-05
   children [
     DEF track Group {
       children [
@@ -999,6 +1004,6 @@ Solid {
     density -1
     mass 20
   }
-  linearVelocity 6.656778315429119e-08 1.3736320327370777e-05 9.087172201937009e-08
-  angularVelocity 5.138953143753944e-07 1.106749237548207e-10 -4.4259482800665915e-07
+  linearVelocity -1.5120542507845461e-05 -8.801540072329317e-06 -1.2528327117147798e-08
+  angularVelocity 2.8117362430630074e-06 -6.9001560215211996e-09 9.586769366867386e-05
 }
