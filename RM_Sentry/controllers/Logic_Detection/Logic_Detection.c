@@ -61,14 +61,14 @@ int main(int argc, char **argv) {
 	 */
 	while (wb_robot_step(TIME_STEP) != -1) {
 
-		get_Keyboard_Control(&All_Speed.VX, &All_Speed.VYaw, &All_Speed.VPitch);
+		//get_Keyboard_Control(&All_Speed.VX, &All_Speed.VYaw, &All_Speed.VPitch);
 		//printf("Yaw_speed = %f\n", All_Speed.VYaw);
 		//printf("Pitch_Speed = %f\n", All_Speed.VPitch);
 
 		//Vision_Updata();
 		//Vision_Control(&Vision, &All_Speed.VYaw, &All_Speed.VPitch);
-		Chassic_Control(All_Speed.VX);
-		Cloud_Control(All_Speed.VYaw, All_Speed.VPitch);
+		//Chassic_Control(All_Speed.VX);
+		//Cloud_Control(All_Speed.VYaw, All_Speed.VPitch);
 		Laser_get_Data();
 
 		Updata_Cloud_data();
@@ -88,6 +88,7 @@ int main(int argc, char **argv) {
 		printf("Cloud_Yaw_PWM : %f\n", Cloud.Yaw_Radian_pid.pwm);
 		printf("Cloud_Yaw_Dir: %d\n", Cloud.Yaw_Scan_Dir);
 
+		Chassis_Cruise_Processing();
 		Pitch_Scan_Processing();
 		Yaw_Scan_Processing();
 

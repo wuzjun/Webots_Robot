@@ -13,6 +13,8 @@
 #include <Math.h>
 #include <webots/distance_sensor.h>
 
+extern double distance[3];
+
 void Laser_Init(int TIME_STEP);
 void Laser_get_Data(void);
 

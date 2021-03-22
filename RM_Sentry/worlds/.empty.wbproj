@@ -6,6 +6,6 @@ maximizedDockId: -1
 centralWidgetVisible: 1
 orthographicViewHeight: 1
 textFiles: -1
-globalOptionalRendering: CoordinateSystem::ConnectorAxes
+globalOptionalRendering: CoordinateSystem::ConnectorAxes::DistanceSensorRays
 consoles: Console:All:All
-renderingDevicePerspectives: robot:camera1;1;0.197656;0;0
+renderingDevicePerspectives: robot:camera1;1;0.182031;0;0

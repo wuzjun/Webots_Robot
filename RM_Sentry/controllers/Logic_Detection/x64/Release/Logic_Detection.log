@@ -1,12 +1,7 @@
-﻿  Cloud.c
-c:\users\86158\github\wzjun_webots\rm_sentry\controllers\logic_detection\apps\apps.c\cloud.c(72): warning C4244: “函数”: 从“float”转换到“uint32_t”，可能丢失数据
-c:\users\86158\github\wzjun_webots\rm_sentry\controllers\logic_detection\apps\apps.c\cloud.c(89): warning C4244: “函数”: 从“double”转换到“float”，可能丢失数据
-c:\users\86158\github\wzjun_webots\rm_sentry\controllers\logic_detection\apps\apps.c\cloud.c(108): warning C4244: “函数”: 从“float”转换到“uint32_t”，可能丢失数据
-c:\users\86158\github\wzjun_webots\rm_sentry\controllers\logic_detection\apps\apps.c\cloud.c(130): warning C4244: “函数”: 从“double”转换到“float”，可能丢失数据
-  Logic_Detection.c
+﻿  Logic_Detection.c
   正在生成代码
-  2 of 23 functions ( 8.7%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
+  2 of 21 functions ( 9.5%) were compiled, the rest were copied from previous compilation.
+    1 functions were new in current compilation
     0 functions had inline decision re-evaluated but remain unchanged
   已完成代码的生成
   Logic_Detection.vcxproj -> C:\Users\86158\Github\wzjun_webots\RM_Sentry\controllers\Logic_Detection\Logic_Detection.exe

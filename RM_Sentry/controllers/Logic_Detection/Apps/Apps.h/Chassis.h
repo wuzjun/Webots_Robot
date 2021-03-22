@@ -12,8 +12,11 @@
 #include <stdint.h>
 #include <Math.h>
 #include <Motor.h>
+#include <Laser.h>
 
+extern float Chassis_Cruise_Velocity;
 void Chassic_Control(float VX);
+void Chassis_Cruise_Processing(void);
 
 
 #endif /* __CHIASSIS_H */
