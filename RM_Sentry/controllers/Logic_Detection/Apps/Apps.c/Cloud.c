@@ -17,15 +17,30 @@ void Cloud_Control(float VYaw, float VPitch)
 
 void Updata_Cloud_Radian_data(void)
 {
-	
+
 	//更新IMU的Pitch轴的弧度
 	//将函数返回值的地址中的值复制到数组中
 	memcpy(Cloud.Eular, wb_inertial_unit_get_roll_pitch_yaw(IMU), sizeof(double[3]));
 
-	//printf("Pitch : %lf\n", Cloud.Eular[1]);
+	//过零处理
+	//何时需要 + pai，后进行过零处理。当转一圈时所对应的值并非是连续单调的，而是转一圈是先单调减后单增的情况，就需要加上个值去使其单调
+	Cloud.Yaw_Real_Radian = Cloud.Eular[2] + pai;
+	if (Cloud.Yaw_Real_Radian - Cloud.Yaw_Last_Radian < -5.5)
+	{
+		Cloud.Yaw_Counts--;
+	}
+	else if (Cloud.Yaw_Last_Radian - Cloud.Yaw_Real_Radian < -5.5)
+	{
+		Cloud.Yaw_Counts++;
+	}
+
+	Cloud.Yaw_total_Radian = Cloud.Yaw_Real_Radian + Cloud.Yaw_Counts * pai;
+	
+	Cloud.Yaw_Last_Radian = Cloud.Yaw_Real_Radian;
 
 }
 
+/*
 void Pitch_Gain_Radian(void)
 {
 	double y;				//用于算反正弦asin的自变量x 的 y
@@ -131,3 +146,4 @@ void Yaw_Scan_Processing(void)
 	wb_motor_set_velocity(wheels[1], Cloud.Yaw_Radian_pid.pwm);
 
 }
+*/

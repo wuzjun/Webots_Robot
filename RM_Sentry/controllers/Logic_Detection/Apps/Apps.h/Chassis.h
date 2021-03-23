@@ -20,13 +20,18 @@
 extern float Chassis_Cruise_Velocity;
 
 /* 最佳攻击距离的参数 */
-#define Yaw_Reference_Radain 0.02				//云台Yaw轴参考的弧度(作为测量角度的起点) 枪管与轨道的左侧平行
+#define Yaw_Reference_Radain 3.0				//云台Yaw轴参考的弧度(作为测量角度的起点) 枪管与轨道的左侧平行
 #define Best_Attcak_Distance 3.20					//最佳攻击距离
+
+#define Chassis_Max_Distance 1.25				//底盘最大的移动路程
+#define Chassis_Min_Distance 0.4						//底盘最小的移动距离
 
 typedef struct
 {
 
 	double Yaw_Increment_Radian;				//云台的弧度增量
+	double Yaw_Last_Increment_Radian;
+
 	double Incremnet_Distance;			//底盘移动的路程增量
 
 	double Real_Distance;				//底盘的当前路程

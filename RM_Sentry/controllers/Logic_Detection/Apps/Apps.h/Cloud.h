@@ -29,6 +29,8 @@
 #define Yaw_Max_Radian 3.0				//Yaw轴的上限位
 #define Yaw_Min_Radian -3.0                //Yaw轴的下限位
 
+#define pai 3.1415926535
+
 typedef struct {
 
 	double Eular[3];
@@ -37,6 +39,11 @@ typedef struct {
 	
 	double Pitch_Target_Radian;				//Pitch目标弧度
 	double Yaw_Target_Radian;				//Yaw目标弧度
+
+	double Yaw_Real_Radian;				//Yaw轴的当前弧度
+	double Yaw_Last_Radian;				//Yaw轴的上此弧度
+	int32_t Yaw_Counts;					//Yaw轴的圈数
+	double Yaw_total_Radian;			//Yaw轴的总弧度
 
 	uint8_t Pitch_Scan_Dir;				//Pitch轴扫描方向
 	int8_t Yaw_Scan_Dir;				//Yaw轴扫描方向:注意它需要负值，不能搞个uint8_t数据类型了
@@ -47,6 +54,7 @@ typedef struct {
 
 	uint8_t i;				//扫描获取弧度值无法放在While外，可能时IMU初始化完成后，无法立刻获取其当前值
 							//所以只能用变量控制其，第一次进入While时，获取一些扫描弧度值
+	uint8_t j;
 
 }Cloud_t;
 
@@ -55,11 +63,11 @@ extern Cloud_t Cloud;
 void Cloud_Control(float VYaw, float VPitch);
 void Updata_Cloud_Radian_data(void);
 
-void Pitch_Gain_Radian(void);
-void Pitch_Scan_Init(void);
-void Pitch_Scan_Processing(void);
-
-void Yaw_Scan_Init(void);
-void Yaw_Scan_Processing(void);
+//void Pitch_Gain_Radian(void);
+//void Pitch_Scan_Init(void);
+//void Pitch_Scan_Processing(void);
+//
+//void Yaw_Scan_Init(void);
+//void Yaw_Scan_Processing(void);
 
 #endif/*__CLOUD_H*/

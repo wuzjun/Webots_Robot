@@ -55,15 +55,14 @@ int main(int argc, char **argv) {
 	Encoder_Init(TIME_STEP);
 
 	Cloud.i = 0;
-
+	Cloud.j = 0;
 	/* main loop
 	 * Perform simulation steps of TIME_STEP milliseconds
 	 * and leave the loop when the simulation is over
 	 */
 	while (wb_robot_step(TIME_STEP) != -1) {
 
-		//更新按键的值，并保存在参数结构体变量中
-		get_Keyboard_Control(&All_Speed.VX, &All_Speed.VYaw, &All_Speed.VPitch);
+
 		//更新底盘编码器的值
 		Updata_Encoder_Radian();
 		//更新云台的Pitch和Yaw轴的值
@@ -81,39 +80,25 @@ int main(int argc, char **argv) {
 			//视觉初始化
 			Vision_Init();
 
-			//Pitch_Scan_Init();
-			//Yaw_Scan_Init();
-
 			Cloud.i = 1;
 		}
 
-		//printf("Yaw_speed = %f\n", All_Speed.VYaw);
-		//printf("Pitch_Speed = %f\n", All_Speed.VPitch);
-
 		//自瞄的控制函数，将输出结果赋给云台相同输入控制结构体变量
 		Vision_Control(&Vision, &All_Speed.VYaw, &All_Speed.VPitch);
+		//云台的直接控制函数
+		Cloud_Control(All_Speed.VYaw, All_Speed.VPitch);
 		//最佳攻击距离
 		Optimally_Attack_Distance0(Cloud.Eular[2], distance[0], &Chassis.Incremnet_Distance);
 		//底盘+编码器的控制函数
 		Chassis_add_Encoder_Control(&All_Speed.VX);
 		//底盘直接控制函数
+		printf("Vx = %f", All_Speed.VX);
 		Chassic_Control(All_Speed.VX);
-		//云台的直接控制函数
-		Cloud_Control(All_Speed.VYaw, All_Speed.VPitch);
-		
 
-		//printf("Pitch : %lf\n", Cloud.Eular[1]);
-		//printf("cloud.x_about_Radian : %lf\n", Cloud.x_about_Radian);
-		//printf("Cloud.Pitch_Target_Radian: %lf\n", Cloud.Pitch_Target_Radian);
+		//更新按键的值，并保存在参数结构体变量中
+		get_Keyboard_Control(&All_Speed.VX, &All_Speed.VYaw, &All_Speed.VPitch);
 
-		/*printf("Yaw : %lf\n", Cloud.Eular[2]);*/
-		//printf("Cloud.Yaw_Target_Radian: %lf\n", Cloud.Yaw_Target_Radian);
-		//printf("Cloud_Yaw_PWM : %f\n", Cloud.Yaw_Radian_pid.pwm);
-		//printf("Cloud_Yaw_Dir: %d\n", Cloud.Yaw_Scan_Dir);
-
-		//Chassis_Cruise_Processing();
-		//Pitch_Scan_Processing();
-		//Yaw_Scan_Processing();
+		printf("Distance : %lf\n", distance[0]);
 
 	};
 

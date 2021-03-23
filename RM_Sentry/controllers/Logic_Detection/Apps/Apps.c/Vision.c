@@ -60,6 +60,4 @@ void Vision_Control(Vision_t *Vison, float *VYaw, float *VPitch)
 		*VYaw = Vison->Vision_Yaw_PID.pwm;
 		*VPitch = Vison->Vision_Pitch_PID.pwm;
 	}
-	printf("err_Yaw = %f\n", Vison->Vision_Yaw_PID.err);
-	printf("PID_Yaw = %f\n", Vison->Vision_Yaw_PID.pwm);
 }
