@@ -20,7 +20,5 @@ void  Updata_Encoder_Radian(void)
 	//计算得到底盘当前位置距原点位置的距离
 	Chassis.Real_Distance = (Chassis_Encoder.Real_Encoder_Radian - Chassis_Encoder_Referen_Radian)*Per_Radian_Contact_Distance;
 
-	printf("Chassis_Real_Distance : %lf\n", Chassis.Real_Distance);
-
 }
 

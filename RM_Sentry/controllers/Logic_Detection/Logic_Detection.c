@@ -55,7 +55,6 @@ int main(int argc, char **argv) {
 	Encoder_Init(TIME_STEP);
 
 	Cloud.i = 0;
-	Cloud.j = 0;
 	/* main loop
 	 * Perform simulation steps of TIME_STEP milliseconds
 	 * and leave the loop when the simulation is over
@@ -92,13 +91,10 @@ int main(int argc, char **argv) {
 		//底盘+编码器的控制函数
 		Chassis_add_Encoder_Control(&All_Speed.VX);
 		//底盘直接控制函数
-		printf("Vx = %f", All_Speed.VX);
 		Chassic_Control(All_Speed.VX);
 
-		//更新按键的值，并保存在参数结构体变量中
-		get_Keyboard_Control(&All_Speed.VX, &All_Speed.VYaw, &All_Speed.VPitch);
-
-		printf("Distance : %lf\n", distance[0]);
+		////更新按键的值，并保存在参数结构体变量中
+		//get_Keyboard_Control(&All_Speed.VX, &All_Speed.VYaw, &All_Speed.VPitch);
 
 	};
 

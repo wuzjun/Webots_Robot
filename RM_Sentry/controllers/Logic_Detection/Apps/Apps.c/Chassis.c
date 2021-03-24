@@ -37,15 +37,11 @@ void Chassis_Cruise_Processing(void)
 void Optimally_Attack_Distance0(double real_Angle, double real_depth, double* b)
 {
 
-	Chassis.Yaw_Last_Increment_Radian = Chassis.Yaw_Increment_Radian;
-	//获取云台Yaw轴弧度差
 	Chassis.Yaw_Increment_Radian = (real_Angle - Yaw_Reference_Radain);
 	if (Chassis.Yaw_Increment_Radian < 0)
 	{
 		Chassis.Yaw_Increment_Radian = -Chassis.Yaw_Increment_Radian;
 	}
-
-	printf("Chassis_Incremenr_Radian : %lf\n", Chassis.Yaw_Increment_Radian);
 
 	float a = Best_Attcak_Distance; 
 	float c = real_depth;
@@ -76,28 +72,28 @@ void Chassis_add_Encoder_Init(void)
 	//直接使底盘不动
 	Chassis.Encoder_pid.pwm = 0;
 	//底盘编码器PID的初始化
-	PositionPID_paraReset(&Chassis.Encoder_pid, 20.0, 0.0, 0.0, 50, 0.0);
+	PositionPID_paraReset(&Chassis.Encoder_pid, 40.0, 0.0, 0.0, 50, 0.0);
 
 }
 
 //底盘+编码器 控制
 void Chassis_add_Encoder_Control(float* VX)
 {
-
-	if (Chassis.Real_Distance <= Chassis_Min_Distance && (Chassis.Yaw_Last_Increment_Radian - Chassis.Yaw_Increment_Radian) >= 0)
-	{
-		*VX = 0;
-		return;
-	}
-	else if (Chassis.Real_Distance >= Chassis_Max_Distance && (Chassis.Yaw_Last_Increment_Radian - Chassis.Yaw_Increment_Radian) <= 0)
-	{
-		*VX = 0;
-		return;
-	}
-
-	printf("Increment_Distance %lf\n", Chassis.Incremnet_Distance);
-
+	
 	Chassis.Target_Distance = Chassis.Incremnet_Distance + Chassis.Real_Distance;
+
+	printf("Chassis_Incremnet_Distance : %lf\n", Chassis.Incremnet_Distance);
+
+	if (Chassis.Real_Distance <= Chassis_Min_Distance && Chassis.Incremnet_Distance >= 0)
+	{
+		*VX = 0;
+		return;
+	}
+	else if (Chassis.Real_Distance >= Chassis_Max_Distance && Chassis.Incremnet_Distance <= 0)
+	{
+		*VX = 0;
+		return;
+	}
 
 	//编码器环：
 	Position_PID(&Chassis.Encoder_pid, Chassis.Target_Distance, Chassis.Real_Distance);
