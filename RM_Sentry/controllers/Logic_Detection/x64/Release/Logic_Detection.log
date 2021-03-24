@@ -1,10 +1,8 @@
 ﻿  Chassis.c
-c:\users\86158\github\wzjun_webots\rm_sentry\controllers\logic_detection\apps\apps.c\chassis.c(46): warning C4305: “初始化”: 从“double”到“float”截断
-c:\users\86158\github\wzjun_webots\rm_sentry\controllers\logic_detection\apps\apps.c\chassis.c(47): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
-c:\users\86158\github\wzjun_webots\rm_sentry\controllers\logic_detection\apps\apps.c\chassis.c(75): warning C4244: “函数”: 从“double”转换到“uint32_t”，可能丢失数据
-c:\users\86158\github\wzjun_webots\rm_sentry\controllers\logic_detection\apps\apps.c\chassis.c(99): warning C4244: “函数”: 从“double”转换到“float”，可能丢失数据
-  Encoder.c
-  Logic_Detection.c
+c:\users\86158\github\wzjun_webots\rm_sentry\controllers\logic_detection\apps\apps.c\chassis.c(50): warning C4305: “初始化”: 从“double”到“float”截断
+c:\users\86158\github\wzjun_webots\rm_sentry\controllers\logic_detection\apps\apps.c\chassis.c(51): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
+c:\users\86158\github\wzjun_webots\rm_sentry\controllers\logic_detection\apps\apps.c\chassis.c(79): warning C4244: “函数”: 从“double”转换到“uint32_t”，可能丢失数据
+c:\users\86158\github\wzjun_webots\rm_sentry\controllers\logic_detection\apps\apps.c\chassis.c(116): warning C4244: “函数”: 从“double”转换到“float”，可能丢失数据
   正在生成代码
   2 of 26 functions ( 7.7%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation

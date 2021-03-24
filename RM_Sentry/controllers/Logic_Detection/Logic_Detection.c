@@ -87,12 +87,13 @@ int main(int argc, char **argv) {
 		//云台的直接控制函数
 		Cloud_Control(All_Speed.VYaw, All_Speed.VPitch);
 		//最佳攻击距离
-		Optimally_Attack_Distance0(Cloud.Eular[2], distance[0], &Chassis.Incremnet_Distance);
+		Optimally_Attack_Distance0(Cloud.Yaw_total_Radian, distance[0], &Chassis.Incremnet_Distance);
 		//底盘+编码器的控制函数
 		Chassis_add_Encoder_Control(&All_Speed.VX);
 		//底盘直接控制函数
 		Chassic_Control(All_Speed.VX);
 
+		printf("Distance : %lf\n", distance[0]);
 		////更新按键的值，并保存在参数结构体变量中
 		//get_Keyboard_Control(&All_Speed.VX, &All_Speed.VYaw, &All_Speed.VPitch);
 

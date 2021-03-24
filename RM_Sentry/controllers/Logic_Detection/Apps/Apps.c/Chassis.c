@@ -37,10 +37,14 @@ void Chassis_Cruise_Processing(void)
 void Optimally_Attack_Distance0(double real_Angle, double real_depth, double* b)
 {
 
-	Chassis.Yaw_Increment_Radian = (real_Angle - Yaw_Reference_Radain);
-	if (Chassis.Yaw_Increment_Radian < 0)
+	Chassis.Yaw_Raw_Increment_Radian = (real_Angle - 0 +(2 * pai * Cloud.Yaw_Counts));						//以0作为参考系可以确保得到的角的弧度值为正值。
+	if (Chassis.Yaw_Raw_Increment_Radian > pai)					//判断是否大于180°，即在轨道一侧
 	{
-		Chassis.Yaw_Increment_Radian = -Chassis.Yaw_Increment_Radian;
+		Chassis.Yaw_Increment_Radian = Chassis.Yaw_Raw_Increment_Radian - pai;
+	}
+	else                                                        //轨道的另一侧时，云台的角的弧度值需要做处理，使其处于个180°内(即不可大于三角形内角和)
+	{
+		Chassis.Yaw_Increment_Radian = Chassis.Yaw_Raw_Increment_Radian;
 	}
 
 	float a = Best_Attcak_Distance; 
@@ -73,26 +77,40 @@ void Chassis_add_Encoder_Init(void)
 	Chassis.Encoder_pid.pwm = 0;
 	//底盘编码器PID的初始化
 	PositionPID_paraReset(&Chassis.Encoder_pid, 40.0, 0.0, 0.0, 50, 0.0);
-
 }
 
 //底盘+编码器 控制
 void Chassis_add_Encoder_Control(float* VX)
 {
-	
-	Chassis.Target_Distance = Chassis.Incremnet_Distance + Chassis.Real_Distance;
-
-	printf("Chassis_Incremnet_Distance : %lf\n", Chassis.Incremnet_Distance);
-
-	if (Chassis.Real_Distance <= Chassis_Min_Distance && Chassis.Incremnet_Distance >= 0)
+	//在轨道的一侧
+	if (Chassis.Yaw_Raw_Increment_Radian > pai)
 	{
-		*VX = 0;
-		return;
+		Chassis.Target_Distance =   Chassis.Real_Distance - Chassis.Incremnet_Distance;
+		if (Chassis.Real_Distance <= Chassis_Min_Distance && Chassis.Incremnet_Distance <= 0)
+		{
+			*VX = 0;
+			return;
+		}
+		else if (Chassis.Real_Distance >= Chassis_Max_Distance && Chassis.Incremnet_Distance >= 0)
+		{
+			*VX = 0;
+			return;
+		}
 	}
-	else if (Chassis.Real_Distance >= Chassis_Max_Distance && Chassis.Incremnet_Distance <= 0)
+	else            //在轨道的另一侧（移动的只需要改变方向，即是改变底盘移动增量的方向；而限位的即受底盘增量方向的影响，也需要改变；PID的就不用变）
 	{
-		*VX = 0;
-		return;
+		Chassis.Target_Distance = Chassis.Incremnet_Distance + Chassis.Real_Distance;
+		if (Chassis.Real_Distance <= Chassis_Min_Distance && Chassis.Incremnet_Distance >= 0)
+		{
+			*VX = 0;
+			return;
+		}
+		else if (Chassis.Real_Distance >= Chassis_Max_Distance && Chassis.Incremnet_Distance <= 0)
+		{
+			*VX = 0;
+			return;
+		}
+
 	}
 
 	//编码器环：
