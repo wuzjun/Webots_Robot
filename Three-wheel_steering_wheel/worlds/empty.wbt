@@ -1,0 +1,241 @@
+#VRML_SIM R2021a utf8
+WorldInfo {
+  basicTimeStep 8
+  coordinateSystem "NUE"
+}
+Viewpoint {
+  orientation -0.08078773461956766 0.908963430208585 0.4089728896619935 2.7713575189347113
+  position 0.31351538465625206 0.9665336927063084 -0.7051881922637652
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+Floor {
+}
+Robot {
+  translation 0 0.11 0
+  children [
+    DEF Steering_WHEEL3 HingeJoint {
+      jointParameters HingeJointParameters {
+        axis 0 1 0
+        anchor -0.0779392 -0.05 -0.0450057
+      }
+      device [
+        RotationalMotor {
+          name "motor3"
+          maxVelocity 50
+        }
+      ]
+      endPoint Solid {
+        translation -0.0779392 -0.05 -0.0450057
+        children [
+          HingeJoint {
+            jointParameters HingeJointParameters {
+              anchor 0 -0.02 0
+            }
+            device [
+              RotationalMotor {
+                name "motor33"
+                maxVelocity 50
+              }
+            ]
+            endPoint Solid {
+              translation 0 -0.02 0
+              rotation 0 0 1 -1.5707953071795862
+              children [
+                DEF WHEEL Transform {
+                  rotation 1 0 0 0
+                  children [
+                    Shape {
+                      appearance PBRAppearance {
+                        baseColor 0 0.666667 0
+                      }
+                      geometry Cylinder {
+                        height 0.03
+                        radius 0.02
+                      }
+                    }
+                  ]
+                }
+              ]
+              boundingObject USE WHEEL
+              physics Physics {
+              }
+            }
+          }
+          DEF Turntable_1 Transform {
+            children [
+              Shape {
+                appearance PBRAppearance {
+                  baseColor 1 0 0
+                }
+                geometry Cylinder {
+                  height 0.01
+                  radius 0.02
+                }
+              }
+            ]
+          }
+        ]
+        name "solid(3)"
+        boundingObject USE Turntable_1
+        physics Physics {
+        }
+      }
+    }
+    DEF Steering_WHEEL2 HingeJoint {
+      jointParameters HingeJointParameters {
+        axis 0 1 0
+        anchor 0.077942 -0.05 -0.0450011
+      }
+      device [
+        RotationalMotor {
+          name "motor2"
+          maxVelocity 50
+        }
+      ]
+      endPoint Solid {
+        translation 0.077942 -0.05 -0.0450011
+        children [
+          HingeJoint {
+            jointParameters HingeJointParameters {
+              anchor 0 -0.02 0
+            }
+            device [
+              RotationalMotor {
+                name "motor22"
+                maxVelocity 50
+              }
+            ]
+            endPoint Solid {
+              translation 0 -0.02 0
+              rotation 0 0 1 1.5708
+              children [
+                DEF WHEEL Transform {
+                  rotation 0 0 1 0
+                  children [
+                    Shape {
+                      appearance PBRAppearance {
+                        baseColor 0 0.666667 0
+                      }
+                      geometry Cylinder {
+                        height 0.03
+                        radius 0.02
+                      }
+                    }
+                  ]
+                }
+              ]
+              boundingObject USE WHEEL
+              physics Physics {
+              }
+            }
+          }
+          DEF Turntable_1 Transform {
+            children [
+              Shape {
+                appearance PBRAppearance {
+                  baseColor 1 0 0
+                }
+                geometry Cylinder {
+                  height 0.01
+                  radius 0.02
+                }
+              }
+            ]
+          }
+        ]
+        name "solid(2)"
+        boundingObject USE Turntable_1
+        physics Physics {
+        }
+      }
+    }
+    DEF Steering_WHEEL1 HingeJoint {
+      jointParameters HingeJointParameters {
+        axis 0 1 0
+        anchor 0 -0.05 0.09
+      }
+      device [
+        RotationalMotor {
+          name "motor1"
+          maxVelocity 50
+        }
+      ]
+      endPoint Solid {
+        translation 0 -0.05 0.09
+        children [
+          HingeJoint {
+            jointParameters HingeJointParameters {
+              anchor 0 -0.02 0
+            }
+            device [
+              RotationalMotor {
+                name "motor11"
+                maxVelocity 50
+              }
+            ]
+            endPoint Solid {
+              translation 0 -0.02 0
+              rotation 0 0 1 -1.5707953071795862
+              children [
+                DEF WHEEL Transform {
+                  rotation 1 0 0 0
+                  children [
+                    Shape {
+                      appearance PBRAppearance {
+                        baseColor 0 0.666667 0
+                      }
+                      geometry Cylinder {
+                        height 0.03
+                        radius 0.02
+                      }
+                    }
+                  ]
+                }
+              ]
+              boundingObject USE WHEEL
+              physics Physics {
+              }
+            }
+          }
+          DEF Turntable_1 Transform {
+            children [
+              Shape {
+                appearance PBRAppearance {
+                  baseColor 1 0 0
+                }
+                geometry Cylinder {
+                  height 0.01
+                  radius 0.02
+                }
+              }
+            ]
+          }
+        ]
+        name "solid(1)"
+        boundingObject USE Turntable_1
+        physics Physics {
+        }
+      }
+    }
+    DEF BODY Transform {
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.333333 0.333333 1
+          }
+          geometry Cylinder {
+            height 0.1
+            radius 0.05
+          }
+        }
+      ]
+    }
+  ]
+  boundingObject USE BODY
+  physics Physics {
+  }
+  controller "my_controller"
+}
