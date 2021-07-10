@@ -155,7 +155,7 @@ int main(int argc, char **argv)
 
   while (wb_robot_step(TIME_STEP) != -1)
   {
-    get_Keyboard_Control(&Vx, &Vy, &VOmega, &key);
+    get_Keyboard_Control(&Vy, &Vx, &VOmega, &key);
 
     HelmCalculate(Vx, Vy, VOmega, 90.0f, &Chassis[0]); 
     HelmCalculate(Vx, Vy, VOmega, -150.0f, &Chassis[1]);
