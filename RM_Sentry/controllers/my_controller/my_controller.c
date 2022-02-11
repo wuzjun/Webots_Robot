@@ -14,14 +14,14 @@ int main(int argc, char **argv)
 
   // initialize motors
   WbDeviceTag wheels[3];
-  char wheels_names[3][8] = {
-      "motor1", "motor2", "motor3"};
+  char wheels_names[8] = {
+      "motor1"};
 
-  for (int i = 0; i < 3; i++)
-  {
-    wheels[i] = wb_robot_get_device(wheels_names[i]);
-    wb_motor_set_position(wheels[i], INFINITY);
-  }
+  // for (int i = 0; i < 3; i++)
+  // {
+    wheels[0] = wb_robot_get_device(wheels_names);
+    wb_motor_set_position(wheels[0], INFINITY);
+  // }
 
   float left_speed = 0.0f;
   float right_speed = 0.0f;
@@ -72,7 +72,7 @@ int main(int argc, char **argv)
     {
       if (abs(tempSpeed[i]) > MaxSpeed)
       {
-        MaxSpeed = abs(tempSpeed[i]);
+        MaxSpeed = abs(tempSpeed[i]); 
       }
     }
 
@@ -85,10 +85,12 @@ int main(int argc, char **argv)
     left_speed = tempSpeed[0] * Param;
     right_speed = tempSpeed[1] * Param;
 
-    for (int i = 0; i < 3; i++)
-    {
-      wb_motor_set_velocity(wheels[i], left_speed);
-    }
+    // for (int i = 0; i < 3; i++)
+    // {
+    //   wb_motor_set_velocity(wheels[i], left_speed);
+    // }
+    wb_motor_set_velocity(wheels[0], left_speed);
+
   }
 
   wb_robot_cleanup();
